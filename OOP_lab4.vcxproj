@@ -139,11 +139,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="IOpener.cpp" />
+    <ClCompile Include="IReader.cpp" />
     <ClCompile Include="IRoom.cpp" />
     <ClCompile Include="ISolver.cpp" />
     <ClCompile Include="OOP_lab4.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="IOpener.h" />
+    <ClInclude Include="IReader.h" />
     <ClInclude Include="IRoom.h" />
     <ClInclude Include="ISolver.h" />
   </ItemGroup>

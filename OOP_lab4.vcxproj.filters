@@ -24,12 +24,24 @@
     <ClCompile Include="ISolver.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="IReader.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="IOpener.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="IRoom.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="ISolver.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="IReader.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="IOpener.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
