@@ -139,7 +139,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="IRoom.cpp" />
     <ClCompile Include="OOP_lab4.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="IRoom.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
