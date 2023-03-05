@@ -21,9 +21,15 @@
     <ClCompile Include="IRoom.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="ISolver.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="IRoom.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="ISolver.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
