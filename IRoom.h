@@ -16,7 +16,7 @@ private:
 	ISolver* mySolver;
 
 public:
-	IRoom(string s);
+	IRoom(string s, ISolver* solv);
 
 	void name();
 	void setOpener(IOpener* o);
