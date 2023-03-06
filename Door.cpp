@@ -2,10 +2,10 @@
 
 void Door::actionOpen()
 {
-	cout << "Дверь открыта!" << endl;
+	//cout << myName << endl;
 }
 
 void Door::actionClose()
 {
-	cout << "Дверь закрыта!" << endl;
+
 }

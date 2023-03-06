@@ -9,9 +9,7 @@ int main()
 {
     setlocale(LC_ALL, "Rus");
 
-    ISolver solv;
-
-    IRoom cabinet("Кабинет", &solv);
+    IRoom cabinet("Кабинет");
     cabinet.name();
 
     Door door;
