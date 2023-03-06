@@ -1,8 +1,9 @@
 #include "IRoom.h"
 
-IRoom::IRoom(string s)
+IRoom::IRoom(string s, ISolver* solv)
 { 
 	myName = s; 
+	mySolver = solv;
 }
 
 void IRoom::name() 
