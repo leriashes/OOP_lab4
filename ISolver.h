@@ -1,15 +1,17 @@
 #pragma once
 #include "IOpener.h"
-#include "IReader.h"
 
 class ISolver
 {
 private:
 	IOpener* myOpener;
-	IReader* myReader;
-
+	
 public:
 	void setOpener(IOpener* o);
-	void setReader(IReader* r);
+	void allowOpen();
+	void forbidOpen();
+
+	virtual void processData() = 0;
+	virtual void sendSolution() = 0;
 };
 
