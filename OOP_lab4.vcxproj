@@ -42,7 +42,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
@@ -140,18 +140,30 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Door.cpp" />
+    <ClCompile Include="FingerPrintScanner.cpp" />
+    <ClCompile Include="Gate.cpp" />
     <ClCompile Include="IOpener.cpp" />
     <ClCompile Include="IReader.cpp" />
     <ClCompile Include="IRoom.cpp" />
     <ClCompile Include="ISolver.cpp" />
+    <ClCompile Include="NumberPlateScanner.cpp" />
     <ClCompile Include="OOP_lab4.cpp" />
+    <ClCompile Include="SimpleRoom.cpp" />
+    <ClCompile Include="SimpleSolver.cpp" />
+    <ClCompile Include="StateSolver.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Door.h" />
+    <ClInclude Include="FingerPrintScanner.h" />
+    <ClInclude Include="Gate.h" />
     <ClInclude Include="IOpener.h" />
     <ClInclude Include="IReader.h" />
     <ClInclude Include="IRoom.h" />
     <ClInclude Include="ISolver.h" />
+    <ClInclude Include="NumberPlateScanner.h" />
+    <ClInclude Include="SimpleRoom.h" />
+    <ClInclude Include="SimpleSolver.h" />
+    <ClInclude Include="StateSolver.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

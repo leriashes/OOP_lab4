@@ -1,10 +1,10 @@
 #pragma once
 #include "IOpener.h"
-class Door : public IOpener
+class Gate :
+    public IOpener
 {
-  
 public:
-    Door() :IOpener("Дверь") {};
+    Gate() :IOpener("Ворота") {};
 
     void actionOpen();
     void actionClose();
