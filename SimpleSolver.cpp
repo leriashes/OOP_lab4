@@ -23,3 +23,9 @@ void SimpleSolver::sendSolution(bool res)
 
 	(this->*(actions[res]))();
 }
+
+void SimpleSolver::setState(bool state)
+{
+	cout << "Невозможно изменить состояние..." << endl;
+}
+

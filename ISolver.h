@@ -13,5 +13,6 @@ public:
 
 	virtual void processData() = 0;
 	virtual void sendSolution(bool res) = 0;
+	virtual void setState(bool state) = 0;
 };
 
