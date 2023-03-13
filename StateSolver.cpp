@@ -38,9 +38,12 @@ void StateSolver::sendSolution(bool res)
 
 	cout << solutions[res] << endl;
 
-	map <bool, void (ISolver::*)() > actions;
-	actions[false] = &ISolver::forbidOpen;
-	actions[true] = &ISolver::allowOpen;
-
-	(this->*(actions[res]))();
+	if (res)
+	{
+		allowOpen();
+	}
+	else
+	{
+		forbidOpen();
+	}
 }
