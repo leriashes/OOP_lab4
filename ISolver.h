@@ -12,6 +12,6 @@ public:
 	void forbidOpen();
 
 	virtual void processData() = 0;
-	virtual void sendSolution() = 0;
+	virtual void sendSolution(bool res) = 0;
 };
 

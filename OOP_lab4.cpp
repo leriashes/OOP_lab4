@@ -1,5 +1,6 @@
 ﻿#include <iostream>
 #include <string>
+#include <time.h>
 #include "IRoom.h"
 #include "Door.h"
 #include "FingerPrintScanner.h"
@@ -10,6 +11,7 @@ using namespace std;
 int main()
 {
     setlocale(LC_ALL, "Rus");
+    srand(time(NULL));
 
     SimpleSolver solv;
     Door door;
