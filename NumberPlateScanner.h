@@ -4,7 +4,7 @@ class NumberPlateScanner :
     public IReader
 {
 public:
-    NumberPlateScanner() :IReader("—читыватель номерного знака") {};
+    NumberPlateScanner(bool state) :IReader("—читыватель номерного знака", state) {};
 
     void tryToEnter();
     void scanIdentifier();

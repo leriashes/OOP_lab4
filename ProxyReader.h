@@ -7,6 +7,10 @@ private:
     IReader* myReader;
 
 public:
-    ProxyReader(IReader* reader) :IReader("Считыватель номерного знака") {myReader = reader;};
+    ProxyReader(IReader* reader) :IReader("Прокси", true) {myReader = reader;};
+
+    void setReader(IReader* reader);
+    void tryToEnter();
+    void scanIdentifier();
 };
 

@@ -13,6 +13,7 @@ public:
 
 	void(* Action)();
 	void name();
+	
 	virtual void actionOpen() = 0;
 	virtual void actionClose() = 0;
 };

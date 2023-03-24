@@ -8,6 +8,7 @@
 #include "NumberPlateScanner.h"
 #include "SimpleSolver.h"
 #include "StateSolver.h"
+#include "ProxyReader.h"
 using namespace std;
 
 int main()
@@ -17,7 +18,7 @@ int main()
 
     ISolver* solv = new SimpleSolver(), * stSolv = new StateSolver(false);
     IOpener* door = new Door(), *gate = new Gate();
-    IReader* fingerScan = new FingerPrintScanner(), *numplateScan = new NumberPlateScanner();
+    IReader* fingerScan = new FingerPrintScanner(true), *numplateScan = new NumberPlateScanner(true);
     IRoom* cabinet = new SimpleRoom("Кабинет", solv, door, fingerScan), * garage = new SimpleRoom("Гараж", stSolv, gate, numplateScan);
     
     cabinet->name();
@@ -53,6 +54,45 @@ int main()
 
     stSolv1->setState(false);
     fingerScan->tryToEnter();
+    cout << endl << endl;
+
+
+    IReader* proxyScan1 = new ProxyReader(numplateScan), *proxyScan2 = new ProxyReader(fingerScan);
+    garage->setReader(proxyScan1);
+
+    garage->name();
+    proxyScan1->tryToEnter();
+    cout << endl;
+
+    numplateScan->setState(false);
+
+    proxyScan1->tryToEnter();
+    cout << endl << endl;
+
+
+    cabinet->setReader(proxyScan2);
+
+    cabinet->name();
+    proxyScan2->tryToEnter();
+    cout << endl;
+
+    fingerScan->setState(false);
+
+    proxyScan2->tryToEnter();
+    cout << endl;
+
+    stSolv1->setState(false);
+    proxyScan2->tryToEnter();
+    cout << endl;
+
+    fingerScan->setState(true);
+
+    proxyScan2->tryToEnter();
+    cout << endl;
+
+    stSolv1->setState(true);
+    proxyScan2->tryToEnter();
+    cout << endl;
 
     return 0;
 }

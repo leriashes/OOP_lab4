@@ -4,7 +4,7 @@ class FingerPrintScanner :
     public IReader
 {
 public:
-    FingerPrintScanner() :IReader("Сканер отпечатка пальца") {};
+    FingerPrintScanner(bool state) :IReader("Сканер отпечатка пальца", state) {};
 
     void tryToEnter();
     void scanIdentifier();
