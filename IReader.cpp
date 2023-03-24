@@ -3,7 +3,7 @@
 IReader::IReader(string s, bool st)
 {
 	myName = s;
-	state = st;
+	myState = st;
 }
 
 void IReader::name()
@@ -18,9 +18,9 @@ void IReader::setSolver(ISolver* s)
 
 void IReader::setState(bool st)
 {
-	state = st;
+	myState = st;
 
-	if (state)
+	if (myState)
 	{
 		cout << myName << ": включение... Готово!" << endl;
 	}
@@ -32,7 +32,7 @@ void IReader::setState(bool st)
 
 bool IReader::getState()
 {
-	return state;
+	return myState;
 }
 
 string IReader::getName()

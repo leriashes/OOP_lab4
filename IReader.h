@@ -10,7 +10,7 @@ class IReader
 private:
 	string myName;
 	ISolver* mySolver;
-	bool state;
+	bool myState;
 
 public:
 	IReader(string s, bool st);

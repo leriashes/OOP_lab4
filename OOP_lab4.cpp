@@ -94,5 +94,21 @@ int main()
     proxyScan2->tryToEnter();
     cout << endl;
 
+
+    delete cabinet;
+    delete garage;
+
+    delete proxyScan1;
+    delete proxyScan2;
+
+    delete fingerScan;
+    delete numplateScan;
+
+    delete solv;
+    delete stSolv;
+
+    delete door;
+    delete gate;
+
     return 0;
 }

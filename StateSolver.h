@@ -12,7 +12,7 @@ private:
 public:
     StateSolver(bool state) :ISolver() { stateProcessing = stateActions[state]; };
 
-    void setState(bool s);
+    void setState(bool state);
 
     void processData();
     void sendSolution(bool res);
