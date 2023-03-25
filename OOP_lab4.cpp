@@ -48,7 +48,6 @@ int main()
     fingerScan->tryToEnter();
     cout << endl;
 
-    cabinet->name();
     fingerScan->tryToEnter();
     cout << endl;
 
