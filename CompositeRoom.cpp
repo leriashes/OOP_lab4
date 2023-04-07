@@ -12,6 +12,8 @@ void CompositeRoom::remove(IRoom* room)
 
 void CompositeRoom::turnOnReader()
 {
+	IRoom::turnOnReader();
+
 	for (list<IRoom*>::iterator iter = children.begin(); iter != children.end(); iter++)
 	{
 		(*iter)->turnOnReader();
@@ -20,6 +22,8 @@ void CompositeRoom::turnOnReader()
 
 void CompositeRoom::turnOffReader()
 {
+	IRoom::turnOffReader();
+
 	for (list<IRoom*>::iterator iter = children.begin(); iter != children.end(); iter++)
 	{
 		(*iter)->turnOffReader();

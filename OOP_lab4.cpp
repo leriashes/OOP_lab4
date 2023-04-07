@@ -22,7 +22,7 @@ int main()
     IReader* fingerScan = new FingerPrintScanner(true), *numplateScan = new NumberPlateScanner(true);
     IRoom* cabinet = new SimpleRoom("Кабинет", solv, door, fingerScan), * garage = new SimpleRoom("Гараж", stSolv, gate, numplateScan);
     
-    cabinet->name();
+    /*cabinet->name();
     fingerScan->tryToEnter();
     cout << endl;
 
@@ -54,10 +54,10 @@ int main()
 
     stSolv1->setState(false);
     fingerScan->tryToEnter();
-    cout << endl << endl;
+    cout << endl << endl;*/
 
 
-    IReader* proxyScan1 = new ProxyReader(numplateScan), *proxyScan2 = new ProxyReader(fingerScan);
+    /*IReader* proxyScan1 = new ProxyReader(numplateScan), * proxyScan2 = new ProxyReader(fingerScan);
     garage->setReader(proxyScan1);
 
     garage->name();
@@ -93,7 +93,7 @@ int main()
     stSolv1->setState(true);
     proxyScan2->tryToEnter();
     cout << endl;
-
+    */
 
     CompositeRoom* complex1 = new CompositeRoom("Корпус А", solv, door, fingerScan);
 
@@ -112,13 +112,15 @@ int main()
     complex2->getComposite();
 
     complex2->turnOffReader();
+    complex1->turnOnReader();
+
 
 
     delete cabinet;
     delete garage;
 
-    delete proxyScan1;
-    delete proxyScan2;
+    //delete proxyScan1;
+    //delete proxyScan2;
 
     delete fingerScan;
     delete numplateScan;

@@ -36,11 +36,19 @@ void IRoom::setSolver(ISolver* s)
 
 void IRoom::turnOnReader()
 {
-	myReader->setState(true);
+	cout << myName << ": ";
+	if (myReader->getState())
+		cout << myReader->getName() << " уже включён" << endl;
+	else
+		myReader->setState(true);
 }
 
 void IRoom::turnOffReader()
 {
-	myReader->setState(false);
+	cout << myName << ": ";
+	if (!(myReader->getState()))
+		cout << myReader->getName() << " уже выключен" << endl;
+	else
+		myReader->setState(false);
 }
 
