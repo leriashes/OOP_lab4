@@ -22,6 +22,12 @@ int main()
     IReader* fingerScan = new FingerPrintScanner(true), *numplateScan = new NumberPlateScanner(true);
     IRoom* cabinet = new SimpleRoom("Кабинет", solv, door, fingerScan), * garage = new SimpleRoom("Гараж", stSolv, gate, numplateScan);
     
+    IRoom* cabinet1 = new SimpleRoom("Кабинет 1", solv, door, fingerScan), * cabinet2 = new SimpleRoom("Кабинет 2", solv, door, fingerScan);
+
+    CompositeRoom* base = new CompositeRoom("База", solv, door, fingerScan);
+    CompositeRoom* complex1 = new CompositeRoom("Корпус А", solv, door, fingerScan);
+    CompositeRoom* complex2 = new CompositeRoom("Корпус Б", solv, door, fingerScan);
+
     /*cabinet->name();
     fingerScan->tryToEnter();
     cout << endl;
@@ -95,26 +101,22 @@ int main()
     cout << endl;
     */
 
-    CompositeRoom* complex1 = new CompositeRoom("Корпус А", solv, door, fingerScan);
 
     complex1->add(cabinet);
     complex1->add(garage);
-
     complex1->getComposite();
 
-
-    CompositeRoom* complex2 = new CompositeRoom("Корпус Б", solv, door, fingerScan);
-
-    complex2->add(cabinet);
-    complex2->add(garage);
-    complex2->add(complex1);
-    complex2->add(complex1);
+    complex2->add(cabinet1);
+    complex2->add(cabinet2);
     complex2->getComposite();
 
     complex2->turnOffReader();
     complex1->turnOnReader();
 
+    base->add(complex1);
+    base->add(complex2);
 
+    base->getComposite();
 
     delete cabinet;
     delete garage;
