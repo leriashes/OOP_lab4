@@ -34,3 +34,13 @@ void IRoom::setSolver(ISolver* s)
 	myReader->setSolver(mySolver);
 }
 
+void IRoom::turnOnReader()
+{
+	myReader->setState(true);
+}
+
+void IRoom::turnOffReader()
+{
+	myReader->setState(false);
+}
+

@@ -22,5 +22,10 @@ public:
 	void setOpener(IOpener* o);
 	void setReader(IReader* r);
 	void setSolver(ISolver* s);
+
+	virtual void turnOnReader();
+	virtual void turnOffReader();
+
+	virtual void getComposite() = 0;
 };
 

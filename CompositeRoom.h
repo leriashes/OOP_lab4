@@ -10,7 +10,14 @@ private:
     list<IRoom*> children;
 
 public:
+    CompositeRoom(string name, ISolver* solv, IOpener* o, IReader* r) :IRoom(name, solv, o, r) {};
+
     void add(IRoom* room);
     void remove(IRoom* room);
+
+    void turnOnReader();
+    void turnOffReader();
+
+    void getComposite();
 };
 

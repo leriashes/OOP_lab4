@@ -9,6 +9,7 @@
 #include "SimpleSolver.h"
 #include "StateSolver.h"
 #include "ProxyReader.h"
+#include "CompositeRoom.h"
 using namespace std;
 
 int main()
@@ -92,6 +93,25 @@ int main()
     stSolv1->setState(true);
     proxyScan2->tryToEnter();
     cout << endl;
+
+
+    CompositeRoom* complex1 = new CompositeRoom("Корпус А", solv, door, fingerScan);
+
+    complex1->add(cabinet);
+    complex1->add(garage);
+
+    complex1->getComposite();
+
+
+    CompositeRoom* complex2 = new CompositeRoom("Корпус Б", solv, door, fingerScan);
+
+    complex2->add(cabinet);
+    complex2->add(garage);
+    complex2->add(complex1);
+    complex2->add(complex1);
+    complex2->getComposite();
+
+    complex2->turnOffReader();
 
 
     delete cabinet;

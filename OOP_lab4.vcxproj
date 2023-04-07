@@ -147,7 +147,6 @@
     <ClCompile Include="IReader.cpp" />
     <ClCompile Include="IRoom.cpp" />
     <ClCompile Include="ISolver.cpp" />
-    <ClCompile Include="LeafRoom.cpp" />
     <ClCompile Include="NumberPlateScanner.cpp" />
     <ClCompile Include="OOP_lab4.cpp" />
     <ClCompile Include="ProxyReader.cpp" />
@@ -164,7 +163,6 @@
     <ClInclude Include="IReader.h" />
     <ClInclude Include="IRoom.h" />
     <ClInclude Include="ISolver.h" />
-    <ClInclude Include="LeafRoom.h" />
     <ClInclude Include="NumberPlateScanner.h" />
     <ClInclude Include="ProxyReader.h" />
     <ClInclude Include="SimpleRoom.h" />
