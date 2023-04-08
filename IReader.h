@@ -16,11 +16,10 @@ public:
 	IReader(string s, bool st);
 
 	void name();
-	void setSolver(ISolver* s);
-	void setState(bool st);
-
-	bool getState();
-	string getName();
+	virtual void setSolver(ISolver* s);
+	virtual void setState(bool st);
+	virtual bool getState();
+	virtual string getName();
 
 	virtual void tryToEnter() = 0;
 	virtual void scanIdentifier() = 0;

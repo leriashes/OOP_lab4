@@ -12,5 +12,8 @@ public:
     void setReader(IReader* reader);
     void tryToEnter();
     void scanIdentifier();
+    void setState(bool st);
+    void setSolver(ISolver* solver);
+    bool getState();
 };
 

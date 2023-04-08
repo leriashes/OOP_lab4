@@ -52,3 +52,4 @@ void IRoom::turnOffReader()
 		myReader->setState(false);
 }
 
+

@@ -17,121 +17,135 @@ int main()
     setlocale(LC_ALL, "Rus");
     srand(time(NULL));
 
-    ISolver* solv = new SimpleSolver(), * stSolv = new StateSolver(false);
-    IOpener* door = new Door(), *gate = new Gate();
-    IReader* fingerScan = new FingerPrintScanner(true), *numplateScan = new NumberPlateScanner(true);
-    IRoom* cabinet = new SimpleRoom("Кабинет", solv, door, fingerScan), * garage = new SimpleRoom("Гараж", stSolv, gate, numplateScan);
-    
-    IRoom* cabinet1 = new SimpleRoom("Кабинет 1", solv, door, fingerScan), * cabinet2 = new SimpleRoom("Кабинет 2", solv, door, fingerScan);
+    ISolver* solv_base = new SimpleSolver(), * solv_c1 = new SimpleSolver(), * solv_c2 = new SimpleSolver(),
+        * solv_cab1 = new SimpleSolver(), * solv_cab2 = new SimpleSolver(),
+        * solv_garage = new SimpleSolver(), * solv = new SimpleSolver();
 
-    CompositeRoom* base = new CompositeRoom("База", solv, door, fingerScan);
-    CompositeRoom* complex1 = new CompositeRoom("Корпус А", solv, door, fingerScan);
-    CompositeRoom* complex2 = new CompositeRoom("Корпус Б", solv, door, fingerScan);
+    IOpener* door = new Door(), *gate = new Gate(), * gate_garage = new Gate(),
+        * door_c1 = new Door(), * door_c2 = new Door(),
+        * door_cab1 = new Door(), * door_cab2 = new Door();
 
-    /*cabinet->name();
-    fingerScan->tryToEnter();
-    cout << endl;
+    IReader* fingerScan = new FingerPrintScanner(true), *numplateScan = new NumberPlateScanner(true), 
+        * fingerScanlib = new FingerPrintScanner(true), * fingerScan_base = new FingerPrintScanner(true),
+        * fingerScan_c1 = new FingerPrintScanner(true), * fingerScan_c2 = new FingerPrintScanner(true);
 
-    fingerScan->tryToEnter();
-    cout << endl << endl;
+    IReader* pcabinet = new ProxyReader(fingerScan), * pgarage = new ProxyReader(numplateScan),
+        * plib = new ProxyReader(fingerScanlib), * pbase = new ProxyReader(fingerScan_base),
+        * pcomp1 = new ProxyReader(fingerScan_c1), * pcomp2 = new ProxyReader(fingerScan_c2);
 
 
-    garage->name();
-    numplateScan->tryToEnter();
-    cout << endl;
+    IRoom* cabinet = new SimpleRoom("Кабинет", solv, door, pcabinet),
+        * garage = new SimpleRoom("Гараж", solv_garage, gate_garage, pgarage),
+        * library = new SimpleRoom("Библиотека", solv_cab1, door_cab1, plib);
 
-    stSolv->setState(true);
-    numplateScan->tryToEnter();
-    cout << endl;
-
-    numplateScan->tryToEnter();
-    cout << endl << endl;
-
-
-    ISolver* stSolv1 = new StateSolver(true);
-    cabinet->setSolver(stSolv1);
-
-    cabinet->name();
-    fingerScan->tryToEnter();
-    cout << endl;
-
-    fingerScan->tryToEnter();
-    cout << endl;
-
-    stSolv1->setState(false);
-    fingerScan->tryToEnter();
-    cout << endl << endl;*/
-
-
-    /*IReader* proxyScan1 = new ProxyReader(numplateScan), * proxyScan2 = new ProxyReader(fingerScan);
-    garage->setReader(proxyScan1);
-
-    garage->name();
-    proxyScan1->tryToEnter();
-    cout << endl;
-
-    numplateScan->setState(false);
-
-    proxyScan1->tryToEnter();
-    cout << endl << endl;
-
-
-    cabinet->setReader(proxyScan2);
-
-    cabinet->name();
-    proxyScan2->tryToEnter();
-    cout << endl;
-
-    fingerScan->setState(false);
-
-    proxyScan2->tryToEnter();
-    cout << endl;
-
-    stSolv1->setState(false);
-    proxyScan2->tryToEnter();
-    cout << endl;
-
-    fingerScan->setState(true);
-
-    proxyScan2->tryToEnter();
-    cout << endl;
-
-    stSolv1->setState(true);
-    proxyScan2->tryToEnter();
-    cout << endl;
-    */
+    CompositeRoom* base = new CompositeRoom("База", solv_base, gate, pbase), 
+        * complex1 = new CompositeRoom("Корпус А", solv_c1, door_c1, pcomp1),
+        * complex2 = new CompositeRoom("Корпус Б", solv_c2, door_c2, pcomp2);
 
 
     complex1->add(cabinet);
     complex1->add(garage);
     complex1->getComposite();
 
-    complex2->add(cabinet1);
-    complex2->add(cabinet2);
+    complex2->add(library);
     complex2->getComposite();
-
-    complex2->turnOffReader();
-    complex1->turnOnReader();
 
     base->add(complex1);
     base->add(complex2);
-
     base->getComposite();
+    cout << endl;
+
+    base->name();
+    pbase->tryToEnter();
+    cout << endl;
+
+    complex1->name();
+    pcomp1->tryToEnter();
+    cout << endl;
+
+    complex2->name();
+    pcomp2->tryToEnter();
+    cout << endl;
+
+    garage->name();
+    pgarage->tryToEnter();
+    cout << endl << endl;
+
+    base->turnOffReader();
+    cout << endl;
+
+    base->name();
+    pbase->tryToEnter();
+    cout << endl;
+
+    complex1->name();
+    pcomp1->tryToEnter();
+    cout << endl;
+
+    complex2->name();
+    pcomp2->tryToEnter();
+    cout << endl;
+
+    garage->name();
+    pgarage->tryToEnter();
+    cout << endl << endl;
+
+    complex1->turnOnReader();
+    cout << endl;
+
+    base->name();
+    pbase->tryToEnter();
+    cout << endl;
+
+    complex1->name();
+    pcomp1->tryToEnter();
+    cout << endl;
+
+    complex2->name();
+    pcomp2->tryToEnter();
+    cout << endl;
+
+    garage->name();
+    pgarage->tryToEnter();
+    cout << endl << endl;
 
     delete cabinet;
     delete garage;
+    delete library;
+    delete complex1;
+    delete complex2;
+    delete base;
 
-    //delete proxyScan1;
-    //delete proxyScan2;
 
-    delete fingerScan;
-    delete numplateScan;
-
+    delete solv_base;
+    delete solv_c1;
+    delete solv_c2;
+    delete solv_cab1;
+    delete solv_cab2;
+    delete solv_garage;
     delete solv;
-    delete stSolv;
 
     delete door;
     delete gate;
+    delete gate_garage;
+    delete door_c1;
+    delete door_c2;
+    delete door_cab1;
+    delete door_cab2;
+
+    delete fingerScan;
+    delete numplateScan;
+    delete fingerScanlib;
+    delete fingerScan_base;
+    delete fingerScan_c1;
+    delete fingerScan_c2;
+
+    delete pcabinet;
+    delete pgarage;
+    delete plib;
+    delete pbase;
+    delete pcomp1;
+    delete pcomp2;
 
     return 0;
 }

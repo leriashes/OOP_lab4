@@ -28,3 +28,19 @@ void ProxyReader::scanIdentifier()
 		cout << myReader->getName() << " не работает!" << endl;
 	}
 }
+
+void ProxyReader::setState(bool st)
+{
+	myReader->setState(st);
+}
+
+void ProxyReader::setSolver(ISolver* solver)
+{
+	myReader->setSolver(solver);
+}
+
+bool ProxyReader::getState()
+{
+	return myReader->getState();
+}
+
