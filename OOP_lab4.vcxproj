@@ -155,6 +155,8 @@
     <ClCompile Include="SimpleRoom.cpp" />
     <ClCompile Include="SimpleSolver.cpp" />
     <ClCompile Include="StateSolver.cpp" />
+    <ClCompile Include="Turnstile.cpp" />
+    <ClCompile Include="TurnstileAdapter.cpp" />
     <ClCompile Include="VoiceReader.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -173,6 +175,8 @@
     <ClInclude Include="SimpleRoom.h" />
     <ClInclude Include="SimpleSolver.h" />
     <ClInclude Include="StateSolver.h" />
+    <ClInclude Include="Turnstile.h" />
+    <ClInclude Include="TurnstileAdapter.h" />
     <ClInclude Include="VoiceReader.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

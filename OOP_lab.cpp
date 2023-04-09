@@ -13,6 +13,8 @@
 #include "CompositeRoom.h"
 #include "VoiceReader.h"
 #include "DisplayReader.h"
+#include "Turnstile.h"
+#include "TurnstileAdapter.h"
 using namespace std;
 
 int main()
@@ -20,14 +22,37 @@ int main()
     setlocale(LC_ALL, "Rus");
     srand(time(NULL));
 
-    //Декоратор
-
     ISolver* solv = new SimpleSolver(), * solv_garage = new SimpleSolver();
     IOpener* door = new Door(), * gate = new Gate();
     IReader* fingerScan = new FingerPrintScanner(true), * numplateScan = new NumberPlateScanner(true);
+    
+
+    //Адаптер
+    Turnstile* turn = new Turnstile();
+    IOpener* adptTurn = new TurnstileAdapter(turn);
+
+    IRoom* cabinet = new SimpleRoom("Кабинет", solv, adptTurn, fingerScan);
+
+    cabinet->name();
+    fingerScan->tryToEnter();
+    cout << endl;
+
+    cabinet->name();
+    fingerScan->tryToEnter();
+    cout << endl;
+
+    cabinet->setOpener(door);
+
+    delete adptTurn;
+    delete turn;
+
+    system("cls");
+
+    //Декоратор
+
     IReader* voiceScan = new VoiceReader(fingerScan);
 
-    IRoom* cabinet = new SimpleRoom("Кабинет", solv, door, voiceScan);
+    cabinet->setReader(voiceScan);
 
     cabinet->name();
     voiceScan->tryToEnter();
