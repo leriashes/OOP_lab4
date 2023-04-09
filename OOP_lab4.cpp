@@ -1,5 +1,6 @@
 ﻿#include <iostream>
 #include <string>
+#include <conio.h>
 #include <time.h>
 #include "SimpleRoom.h"
 #include "Door.h"
@@ -54,6 +55,8 @@ int main()
     base->add(complex2);
     base->getComposite();
     cout << endl;
+    _getch();
+
 
     base->name();
     pbase->tryToEnter();
@@ -70,6 +73,7 @@ int main()
     garage->name();
     pgarage->tryToEnter();
     cout << endl << endl;
+    _getch();
 
     base->turnOffReader();
     cout << endl;
@@ -89,6 +93,7 @@ int main()
     garage->name();
     pgarage->tryToEnter();
     cout << endl << endl;
+    _getch();
 
     complex1->turnOnReader();
     cout << endl;
@@ -107,6 +112,22 @@ int main()
 
     garage->name();
     pgarage->tryToEnter();
+    cout << endl << endl;
+    _getch();
+
+    library->turnOnReader();
+    cout << endl;
+
+    base->name();
+    pbase->tryToEnter();
+    cout << endl;
+
+    complex2->name();
+    pcomp2->tryToEnter();
+    cout << endl;
+
+    library->name();
+    plib->tryToEnter();
     cout << endl << endl;
 
     delete cabinet;
