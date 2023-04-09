@@ -15,6 +15,7 @@
 #include "DisplayReader.h"
 #include "Turnstile.h"
 #include "TurnstileAdapter.h"
+#include "MyAggregate.h"
 using namespace std;
 
 int main()
@@ -197,6 +198,21 @@ int main()
     library->name();
     plib->tryToEnter();
     cout << endl << endl;
+
+
+    //Итератор
+
+    typedef MyAggregate<IRoom*> MyContainer;
+    MyContainer cont;   
+
+    cont.push(complex1);
+    cont.push(complex2);
+    cont.push(cabinet);
+    cont.push(library);
+
+    for (MyContainer::myIter it = cont.begin(); it != cont.end(); ++it) {
+        (*(it.next()))->name();
+    }
 
     //помещения
     delete cabinet;

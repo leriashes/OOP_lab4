@@ -170,11 +170,14 @@
     <ClInclude Include="IReader.h" />
     <ClInclude Include="IRoom.h" />
     <ClInclude Include="ISolver.h" />
+    <ClInclude Include="MyAggregate.h" />
+    <ClInclude Include="MyElement.h" />
     <ClInclude Include="NumberPlateScanner.h" />
     <ClInclude Include="ProxyReader.h" />
     <ClInclude Include="SimpleRoom.h" />
     <ClInclude Include="SimpleSolver.h" />
     <ClInclude Include="StateSolver.h" />
+    <ClInclude Include="MyIterator.h" />
     <ClInclude Include="Turnstile.h" />
     <ClInclude Include="TurnstileAdapter.h" />
     <ClInclude Include="VoiceReader.h" />

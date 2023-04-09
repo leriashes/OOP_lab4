@@ -113,19 +113,28 @@
     <ClInclude Include="CompositeRoom.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="AdditionalReader.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="VoiceReader.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="DisplayReader.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="Turnstile.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="TurnstileAdapter.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="DisplayReader.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="AdditionalReader.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="MyIterator.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="MyElement.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="MyAggregate.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
