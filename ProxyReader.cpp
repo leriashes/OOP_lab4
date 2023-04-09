@@ -5,28 +5,37 @@ void ProxyReader::setReader(IReader* reader)
 	myReader = reader;
 }
 
-void ProxyReader::tryToEnter()
+bool ProxyReader::tryToEnter()
 {
+	bool result;
+
 	if (myReader->getState())
 	{
-		myReader->tryToEnter();
+		result = myReader->tryToEnter();
 	}
 	else
 	{
+		result = false;
 		cout << myReader->getName() << " не работает!" << endl;
 	}
+
+	return result;
 }
 
-void ProxyReader::scanIdentifier()
+bool ProxyReader::scanIdentifier()
 {
+	bool result; 
 	if (myReader->getState())
 	{
-		myReader->scanIdentifier();
+		result = myReader->scanIdentifier();
 	}
 	else
 	{
+		result = false;
 		cout << myReader->getName() << " не работает!" << endl;
 	}
+
+	return result;
 }
 
 void ProxyReader::setState(bool st)
@@ -42,5 +51,15 @@ void ProxyReader::setSolver(ISolver* solver)
 bool ProxyReader::getState()
 {
 	return myReader->getState();
+}
+
+string ProxyReader::getName()
+{
+	return myReader->getName();
+}
+
+string ProxyReader::getRequest()
+{
+	return myReader->getRequest();
 }
 

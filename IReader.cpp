@@ -26,7 +26,7 @@ void IReader::setState(bool st)
 	}
 	else
 	{
-		cout << myName << " выключение... Готово!" << endl;
+		cout << myName << ": выключение... Готово!" << endl;
 	}
 }
 
@@ -40,7 +40,7 @@ string IReader::getName()
 	return myName;
 }
 
-void IReader::sendQuery()
+bool IReader::sendQuery()
 {
-	mySolver->processData();
+	return mySolver->processData();
 }

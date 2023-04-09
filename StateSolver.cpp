@@ -11,23 +11,26 @@ void StateSolver::setState(bool s)
 	cout << states[s] << endl;
 }
 
-void StateSolver::processData()
+bool StateSolver::processData()
 {
-	(this->*(stateProcessing))();
+	return (this->*(stateProcessing))();
 }
 
-void StateSolver::startProcessing()
+bool StateSolver::startProcessing()
 {
 	cout << "Обработка..." << endl;
 
 	bool result = rand() % 2;
 
 	sendSolution(result);
+
+	return result;
 }
 
-void StateSolver::stopProcessing() 
+bool StateSolver::stopProcessing() 
 {
 	cout << "Проход запрещён!" << endl;
+	return false;
 }
 
 void StateSolver::sendSolution(bool res)

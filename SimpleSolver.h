@@ -5,7 +5,7 @@
 class SimpleSolver :
     public ISolver
 {
-    void processData();
+    bool processData();
     void sendSolution(bool res);
     void setState(bool state);
 };

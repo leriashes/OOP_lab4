@@ -11,6 +11,8 @@
 #include "StateSolver.h"
 #include "ProxyReader.h"
 #include "CompositeRoom.h"
+#include "VoiceReader.h"
+#include "DisplayReader.h"
 using namespace std;
 
 int main()
@@ -18,30 +20,75 @@ int main()
     setlocale(LC_ALL, "Rus");
     srand(time(NULL));
 
+    //Декоратор
+
+    ISolver* solv = new SimpleSolver(), * solv_garage = new SimpleSolver();
+    IOpener* door = new Door(), * gate = new Gate();
+    IReader* fingerScan = new FingerPrintScanner(true), * numplateScan = new NumberPlateScanner(true);
+    IReader* voiceScan = new VoiceReader(fingerScan);
+
+    IRoom* cabinet = new SimpleRoom("Кабинет", solv, door, voiceScan);
+
+    cabinet->name();
+    voiceScan->tryToEnter();
+    cout << endl;
+
+    DisplayReader* displayScan = new DisplayReader(voiceScan);
+    cabinet->setReader(displayScan);
+
+    displayScan->tryToEnter();
+    cout << endl;
+
+    displayScan->turnOff();
+    displayScan->tryToEnter();
+    cout << endl;
+
+    IReader* prox = new ProxyReader(displayScan);
+    prox->tryToEnter();
+    cout << endl;
+
+    prox->setState(false);
+    prox->tryToEnter();
+    cout << endl;
+
+
+    IReader* dScan = new DisplayReader(numplateScan);
+    IRoom* garage = new SimpleRoom("Гараж", solv_garage, gate, dScan);
+
+    garage->name();
+    dScan->tryToEnter();
+    cout << endl;
+    _getch();
+
+
+
+
+    system("cls");
+
+    //Композит
+
     ISolver* solv_base = new SimpleSolver(), * solv_c1 = new SimpleSolver(), * solv_c2 = new SimpleSolver(),
-        * solv_cab1 = new SimpleSolver(), * solv_cab2 = new SimpleSolver(),
-        * solv_garage = new SimpleSolver(), * solv = new SimpleSolver();
+        * solv_lib = new SimpleSolver();
 
-    IOpener* door = new Door(), *gate = new Gate(), * gate_garage = new Gate(),
+    IOpener * gate_base = new Gate(),
         * door_c1 = new Door(), * door_c2 = new Door(),
-        * door_cab1 = new Door(), * door_cab2 = new Door();
+        * door_lib = new Door();
 
-    IReader* fingerScan = new FingerPrintScanner(true), *numplateScan = new NumberPlateScanner(true), 
-        * fingerScanlib = new FingerPrintScanner(true), * fingerScan_base = new FingerPrintScanner(true),
+    IReader* fingerScanlib = new FingerPrintScanner(true), * fingerScan_base = new FingerPrintScanner(true),
         * fingerScan_c1 = new FingerPrintScanner(true), * fingerScan_c2 = new FingerPrintScanner(true);
 
-    IReader* pcabinet = new ProxyReader(fingerScan), * pgarage = new ProxyReader(numplateScan),
-        * plib = new ProxyReader(fingerScanlib), * pbase = new ProxyReader(fingerScan_base),
-        * pcomp1 = new ProxyReader(fingerScan_c1), * pcomp2 = new ProxyReader(fingerScan_c2);
+    IReader* pgarage = new ProxyReader(dScan), * plib = new ProxyReader(fingerScanlib),
+        * pbase = new ProxyReader(fingerScan_base), * pcomp1 = new ProxyReader(fingerScan_c1),
+        * pcomp2 = new ProxyReader(fingerScan_c2);
 
 
-    IRoom* cabinet = new SimpleRoom("Кабинет", solv, door, pcabinet),
-        * garage = new SimpleRoom("Гараж", solv_garage, gate_garage, pgarage),
-        * library = new SimpleRoom("Библиотека", solv_cab1, door_cab1, plib);
+    IRoom* library = new SimpleRoom("Библиотека", solv_lib, door_lib, plib);
 
-    CompositeRoom* base = new CompositeRoom("База", solv_base, gate, pbase), 
+    CompositeRoom* base = new CompositeRoom("База", solv_base, gate_base, pbase), 
         * complex1 = new CompositeRoom("Корпус А", solv_c1, door_c1, pcomp1),
         * complex2 = new CompositeRoom("Корпус Б", solv_c2, door_c2, pcomp2);
+
+    garage->setReader(pgarage);
 
 
     complex1->add(cabinet);
@@ -55,7 +102,6 @@ int main()
     base->add(complex2);
     base->getComposite();
     cout << endl;
-    _getch();
 
 
     base->name();
@@ -73,7 +119,6 @@ int main()
     garage->name();
     pgarage->tryToEnter();
     cout << endl << endl;
-    _getch();
 
     base->turnOffReader();
     cout << endl;
@@ -93,7 +138,6 @@ int main()
     garage->name();
     pgarage->tryToEnter();
     cout << endl << endl;
-    _getch();
 
     complex1->turnOnReader();
     cout << endl;
@@ -113,7 +157,6 @@ int main()
     garage->name();
     pgarage->tryToEnter();
     cout << endl << endl;
-    _getch();
 
     library->turnOnReader();
     cout << endl;
@@ -130,6 +173,7 @@ int main()
     plib->tryToEnter();
     cout << endl << endl;
 
+    //помещения
     delete cabinet;
     delete garage;
     delete library;
@@ -137,23 +181,23 @@ int main()
     delete complex2;
     delete base;
 
-
+    //решатели
     delete solv_base;
     delete solv_c1;
     delete solv_c2;
-    delete solv_cab1;
-    delete solv_cab2;
+    delete solv_lib;
     delete solv_garage;
     delete solv;
 
+    //двери
     delete door;
     delete gate;
-    delete gate_garage;
+    delete gate_base;
     delete door_c1;
     delete door_c2;
-    delete door_cab1;
-    delete door_cab2;
+    delete door_lib;
 
+    //считыватели
     delete fingerScan;
     delete numplateScan;
     delete fingerScanlib;
@@ -161,7 +205,8 @@ int main()
     delete fingerScan_c1;
     delete fingerScan_c2;
 
-    delete pcabinet;
+    //прокси
+    delete prox;
     delete pgarage;
     delete plib;
     delete pbase;

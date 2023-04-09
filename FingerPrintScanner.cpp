@@ -1,14 +1,20 @@
 #include "FingerPrintScanner.h"
 
-void FingerPrintScanner::tryToEnter()
+bool FingerPrintScanner::tryToEnter()
 {
-	scanIdentifier();
+	_getch();
+	return scanIdentifier();
 }
 
-void FingerPrintScanner::scanIdentifier()
+bool FingerPrintScanner::scanIdentifier()
 {
 	name();
 	cout << "Отпечаток пальца считан!" << endl;
-	sendQuery();
+	return sendQuery();
+}
+
+string FingerPrintScanner::getRequest()
+{
+	return "Пожалуйста, приложите Ваш палец. ";
 }
 

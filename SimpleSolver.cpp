@@ -1,12 +1,14 @@
 #include "SimpleSolver.h"
 
-void SimpleSolver::processData()
+bool SimpleSolver::processData()
 {
 	cout << "Обработка..." << endl;
 
 	bool result = rand() % 2;
 
 	sendSolution(result);
+
+	return result;
 }
 
 void SimpleSolver::sendSolution(bool res)

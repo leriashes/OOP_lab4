@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include "ISolver.h"
+#include <conio.h>
 using namespace std;
 
 
@@ -21,8 +22,10 @@ public:
 	virtual bool getState();
 	virtual string getName();
 
-	virtual void tryToEnter() = 0;
-	virtual void scanIdentifier() = 0;
-	void sendQuery();
+	virtual bool tryToEnter() = 0;
+	virtual bool scanIdentifier() = 0;
+	virtual string getRequest() = 0;
+
+	bool sendQuery();
 };
 

@@ -139,7 +139,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AdditionalReader.cpp" />
     <ClCompile Include="CompositeRoom.cpp" />
+    <ClCompile Include="DisplayReader.cpp" />
     <ClCompile Include="Door.cpp" />
     <ClCompile Include="FingerPrintScanner.cpp" />
     <ClCompile Include="Gate.cpp" />
@@ -148,14 +150,17 @@
     <ClCompile Include="IRoom.cpp" />
     <ClCompile Include="ISolver.cpp" />
     <ClCompile Include="NumberPlateScanner.cpp" />
-    <ClCompile Include="OOP_lab4.cpp" />
+    <ClCompile Include="OOP_lab.cpp" />
     <ClCompile Include="ProxyReader.cpp" />
     <ClCompile Include="SimpleRoom.cpp" />
     <ClCompile Include="SimpleSolver.cpp" />
     <ClCompile Include="StateSolver.cpp" />
+    <ClCompile Include="VoiceReader.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AdditionalReader.h" />
     <ClInclude Include="CompositeRoom.h" />
+    <ClInclude Include="DisplayReader.h" />
     <ClInclude Include="Door.h" />
     <ClInclude Include="FingerPrintScanner.h" />
     <ClInclude Include="Gate.h" />
@@ -168,6 +173,7 @@
     <ClInclude Include="SimpleRoom.h" />
     <ClInclude Include="SimpleSolver.h" />
     <ClInclude Include="StateSolver.h" />
+    <ClInclude Include="VoiceReader.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

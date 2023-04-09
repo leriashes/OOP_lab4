@@ -1,13 +1,19 @@
 #include "NumberPlateScanner.h"
 
-void NumberPlateScanner::tryToEnter()
+bool NumberPlateScanner::tryToEnter()
 {
-	scanIdentifier();
+	_getch();
+	return scanIdentifier();
 }
 
-void NumberPlateScanner::scanIdentifier()
+bool NumberPlateScanner::scanIdentifier()
 {
 	name();
 	cout << "Номерной знак считан!" << endl;
-	sendQuery();
+	return sendQuery();
+}
+
+string NumberPlateScanner::getRequest()
+{
+	return "Пожалуйста, разместите автомобиль перед камерой. ";
 }

@@ -6,7 +6,8 @@ class FingerPrintScanner :
 public:
     FingerPrintScanner(bool state) :IReader("Сканер отпечатка пальца", state) {};
 
-    void tryToEnter();
-    void scanIdentifier();
+    bool tryToEnter();
+    bool scanIdentifier();
+    string getRequest();
 };
 

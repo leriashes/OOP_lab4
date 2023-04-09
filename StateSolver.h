@@ -6,18 +6,18 @@ class StateSolver :
     public ISolver
 {
 private:
-    map <bool, void (StateSolver::*)()> stateActions = { {false, &StateSolver::stopProcessing}, {true, &StateSolver::startProcessing} };
-    void(StateSolver::* stateProcessing)();
+    map <bool, bool (StateSolver::*)()> stateActions = { {false, &StateSolver::stopProcessing}, {true, &StateSolver::startProcessing} };
+    bool(StateSolver::* stateProcessing)();
 
 public:
     StateSolver(bool state) :ISolver() { stateProcessing = stateActions[state]; };
 
     void setState(bool state);
 
-    void processData();
+    bool processData();
     void sendSolution(bool res);
 
-    void startProcessing();
-    void stopProcessing();
+    bool startProcessing();
+    bool stopProcessing();
 };
 
