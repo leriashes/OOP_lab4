@@ -2,17 +2,29 @@
 
 bool DisplayReader::tryToEnter()
 {
-	if (displayState) 
-		cout << getName() << ", дисплей:\n	Здравствуйте! " << getRequest() << endl;
+	if (displayState)
+	{
+		cout << getName() << ", дисплей:\n	";
+		hello();
+		cout << endl;
+	}
 
 	bool result = scanIdentifier();
 
 	if (displayState)
 	{
 		if (result)
-			cout << getName() << ", дисплей:\n	Проходите! " << endl;
+		{
+			cout << getName() << ", дисплей:\n	";
+			welcome();
+			cout << endl;
+		}
 		else
-			cout << getName() << ", дисплей:\n	Проход запрещён! " << endl;
+		{
+			cout << getName() << ", дисплей:\n	";
+			stop();
+			cout << endl;
+		}
 	}
 
 	return result;

@@ -13,9 +13,8 @@
 #include "CompositeRoom.h"
 #include "VoiceReader.h"
 #include "DisplayReader.h"
-#include "Turnstile.h"
-#include "TurnstileAdapter.h"
-#include "MyAggregate.h"
+#include "RusLang.h"
+#include "EngLang.h"
 using namespace std;
 
 int main()
@@ -27,47 +26,28 @@ int main()
     IOpener* door = new Door(), * gate = new Gate();
     IReader* fingerScan = new FingerPrintScanner(true), * numplateScan = new NumberPlateScanner(true);
     
+    IRoom* cabinet = new SimpleRoom("Кабинет", solv, door, fingerScan);
 
-    //Адаптер
-    Turnstile* turn = new Turnstile();
-    IOpener* adptTurn = new TurnstileAdapter(turn);
+    LangReader* rus = new RusLang(), *eng = new EngLang();
 
-    IRoom* cabinet = new SimpleRoom("Кабинет", solv, adptTurn, fingerScan);
-
-    cabinet->name();
-    fingerScan->tryToEnter();
-    cout << endl;
-
-    cabinet->name();
-    fingerScan->tryToEnter();
-    cout << endl;
-
-    cabinet->setOpener(door);
-    _getch();
-    delete adptTurn;
-    delete turn;
-
-    system("cls");
-
-    //Декоратор
-
-    IReader* voiceScan = new VoiceReader(fingerScan);
-
-    cabinet->setReader(voiceScan);
-
-    cabinet->name();
-    voiceScan->tryToEnter();
-    cout << endl;
-
-    DisplayReader* displayScan = new DisplayReader(voiceScan);
+    DisplayReader* displayScan = new DisplayReader(fingerScan, rus);
     cabinet->setReader(displayScan);
 
     displayScan->tryToEnter();
     cout << endl;
 
-    displayScan->turnOff();
     displayScan->tryToEnter();
     cout << endl;
+
+    displayScan->setLanguage(eng);
+
+    displayScan->tryToEnter();
+    cout << endl;
+
+    displayScan->tryToEnter();
+    cout << endl;
+
+    /*
 
     IReader* prox = new ProxyReader(displayScan);
     prox->tryToEnter();
@@ -253,6 +233,6 @@ int main()
     delete pbase;
     delete pcomp1;
     delete pcomp2;
-
+    */
     return 0;
 }

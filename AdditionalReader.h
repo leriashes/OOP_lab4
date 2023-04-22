@@ -1,13 +1,20 @@
 #pragma once
 #include "IReader.h"
+#include "LangReader.h"
 class AdditionalReader :
     public IReader
 {
 private:
     IReader* myReader;
+    LangReader* myLanguage;
 
 public:
-    AdditionalReader(IReader* reader, string name) :IReader(name, true) { myReader = reader; };
+    AdditionalReader(IReader* reader, LangReader* language, string name) :IReader(name, true) 
+    {   myReader = reader; 
+        myLanguage = language;
+    };
+
+    void setLanguage(LangReader* language);
 
     void setReader(IReader* reader);
     string getName();
@@ -18,5 +25,9 @@ public:
 
     virtual bool tryToEnter();
     virtual bool scanIdentifier();
+
+    void hello();
+    void welcome();
+    void stop();
 };
 

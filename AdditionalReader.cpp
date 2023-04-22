@@ -1,5 +1,10 @@
 #include "AdditionalReader.h"
 
+void AdditionalReader::setLanguage(LangReader* language)
+{
+    myLanguage = language;
+}
+
 void AdditionalReader::setReader(IReader* reader)
 {
     myReader = reader;
@@ -38,4 +43,19 @@ bool AdditionalReader::tryToEnter()
 bool AdditionalReader::scanIdentifier()
 {
     return myReader->scanIdentifier();
+}
+
+void AdditionalReader::hello()
+{
+    myLanguage->printHello();
+}
+
+void AdditionalReader::welcome()
+{
+    myLanguage->printWelcome();
+}
+
+void AdditionalReader::stop()
+{
+    myLanguage->printStop();
 }
