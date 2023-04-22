@@ -43,7 +43,7 @@ int main()
     cout << endl;
 
     cabinet->setOpener(door);
-
+    _getch();
     delete adptTurn;
     delete turn;
 
