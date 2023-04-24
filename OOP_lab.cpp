@@ -15,6 +15,7 @@
 #include "DisplayReader.h"
 #include "RusLang.h"
 #include "EngLang.h"
+#include "StrFlyFactory.h"
 using namespace std;
 
 int main()
@@ -46,6 +47,19 @@ int main()
 
     displayScan->tryToEnter();
     cout << endl;
+
+    StrFlyFactory* fact = new StrFlyFactory();
+
+    StrFlyweight* mes = fact->getStr("Hello!");
+
+    cout << mes->getMessage(" Please, smaile and wave! ");
+
+    StrFlyweight* mes1 = fact->getStr("Hello!");
+
+    cout << mes1->getMessage(" Please1, smaile1 and1 wave1! ");
+
+    delete mes1;
+
 
     /*
 
