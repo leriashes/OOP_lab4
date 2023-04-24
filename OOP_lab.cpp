@@ -15,7 +15,6 @@
 #include "DisplayReader.h"
 #include "RusLang.h"
 #include "EngLang.h"
-#include "StrFlyFactory.h"
 using namespace std;
 
 int main()
@@ -27,9 +26,14 @@ int main()
     IOpener* door = new Door(), * gate = new Gate();
     IReader* fingerScan = new FingerPrintScanner(true), * numplateScan = new NumberPlateScanner(true);
     
-    IRoom* cabinet = new SimpleRoom("Кабинет", solv, door, fingerScan);
+    IRoom* cabinet = new SimpleRoom("Кабинет", solv, door, fingerScan),
+        *garage = new SimpleRoom("Гараж", solv_garage, gate, numplateScan);
 
-    LangReader* rus = new RusLang(), *eng = new EngLang();
+    StrFlyFactory* fact = new StrFlyFactory();
+
+    LangReader* rus = new RusLang(fact, "Пожалуйста, приложите ваш палец! "), 
+        * eng = new EngLang(fact, "Please, put your finger on the scanner! "), 
+        *engGarage = new EngLang(fact, "Please, position the car in front of the scanner! ");
 
     DisplayReader* displayScan = new DisplayReader(fingerScan, rus);
     cabinet->setReader(displayScan);
@@ -48,17 +52,20 @@ int main()
     displayScan->tryToEnter();
     cout << endl;
 
-    StrFlyFactory* fact = new StrFlyFactory();
+    DisplayReader* displayScan1 = new DisplayReader(numplateScan, engGarage);
+    garage->setReader(displayScan1);
 
-    StrFlyweight* mes = fact->getStr("Hello!");
+    displayScan1->tryToEnter();
+    cout << endl;
+    /*StrFlyweight* mes = fact->getStr("Hello!");
 
-    cout << mes->getMessage(" Please, smaile and wave! ");
+    cout << mes->getMessage(" Please, smile and wave! ");
 
     StrFlyweight* mes1 = fact->getStr("Hello!");
 
-    cout << mes1->getMessage(" Please1, smaile1 and1 wave1! ");
+    cout << mes1->getMessage(" Please1, smile1 and1 wave1! ");
 
-    delete mes1;
+    delete mes1;*/
 
 
     /*

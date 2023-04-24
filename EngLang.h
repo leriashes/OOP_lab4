@@ -4,10 +4,6 @@ class EngLang :
     public LangReader
 {
 public:
-	EngLang() :LangReader("English "){};
-
-	void printHello();
-	void printWelcome();
-	void printStop();
+	EngLang(StrFlyFactory* fact, string request) :LangReader("English ", "Hello! ", "Pass on, please! ", "No entrance! ", request, fact) {};
 };
 

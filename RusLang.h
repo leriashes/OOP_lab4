@@ -4,10 +4,6 @@ class RusLang :
     public LangReader
 {
 public:
-	RusLang() :LangReader("Русский ") {};
-
-	void printHello();
-	void printWelcome();
-	void printStop();
+	RusLang(StrFlyFactory* fact, string request) :LangReader("Русский ", "Здравствуйте! ", "Проходите! ", "Проход запрещён! ", request, fact) {};
 };
 
