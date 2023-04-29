@@ -4,7 +4,7 @@ class Gate :
     public IOpener
 {
 public:
-    Gate() :IOpener("Ворота") {};
+    Gate(double cost) :IOpener("Ворота", cost) {};
 
     void actionOpen();
     void actionClose();

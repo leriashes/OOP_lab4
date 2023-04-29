@@ -45,3 +45,18 @@ void CompositeRoom::getComposite()
 
 	cout << endl;
 }
+
+double CompositeRoom::getTotalCost()
+{
+	double result = this->getCost();
+
+	if (children.size() > 0)
+	{
+		for (list<IRoom*>::iterator iter = children.begin(); iter != children.end(); iter++)
+		{
+			result += ((*iter)->getTotalCost());
+		}
+	}
+
+	return result;
+}

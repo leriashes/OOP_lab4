@@ -7,12 +7,14 @@ class IOpener
 {
 private:
 	string myName;
+	double myCost;
 
 public:
-	IOpener(string s);
+	IOpener(string s, double cost);
 
 	void name();
-	
+	double getCost();
+
 	virtual void actionOpen() = 0;
 	virtual void actionClose() = 0;
 };

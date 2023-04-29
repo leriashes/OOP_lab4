@@ -4,3 +4,8 @@ void SimpleRoom::getComposite()
 {
 	name();
 }
+
+double SimpleRoom::getTotalCost()
+{
+	return getCost();
+}

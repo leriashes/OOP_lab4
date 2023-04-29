@@ -12,9 +12,10 @@ private:
 	string myName;
 	ISolver* mySolver;
 	bool myState;
+	double myCost;
 
 public:
-	IReader(string s, bool st);
+	IReader(string s, bool st, double cost);
 
 	void name();
 	virtual void setSolver(ISolver* s);
@@ -27,5 +28,6 @@ public:
 	virtual string getRequest() = 0;
 
 	bool sendQuery();
+	double getCost();
 };
 

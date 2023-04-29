@@ -8,7 +8,7 @@ private:
     Turnstile* myTurn;
 
 public:
-    TurnstileAdapter(Turnstile* turnstile) :IOpener("Турникет") { myTurn = turnstile; };
+    TurnstileAdapter(Turnstile* turnstile, double cost) :IOpener("Турникет", cost) { myTurn = turnstile; };
 
     void actionOpen();
     void actionClose();

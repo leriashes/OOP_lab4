@@ -11,5 +11,6 @@ public:
     SimpleRoom(string name, ISolver* solv, IOpener* o, IReader* r) :IRoom(name, solv, o, r) {};
 
     void getComposite();
+    double getTotalCost();
 };
 

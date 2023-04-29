@@ -7,7 +7,7 @@ private:
     IReader* myReader;
 
 public:
-    ProxyReader(IReader* reader) :IReader("Прокси", true) {myReader = reader;};
+    ProxyReader(IReader* reader) :IReader("Прокси", true, reader->getCost()) {myReader = reader;};
 
     void setReader(IReader* reader);
     bool tryToEnter();

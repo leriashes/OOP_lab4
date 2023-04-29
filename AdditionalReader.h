@@ -9,7 +9,7 @@ private:
     LangReader* myLanguage;
 
 public:
-    AdditionalReader(IReader* reader, LangReader* language, string name) :IReader(name, true) 
+    AdditionalReader(IReader* reader, LangReader* language, string name, double cost) :IReader(name, true, reader->getCost() + cost)
     {   myReader = reader; 
         myLanguage = language;
     };

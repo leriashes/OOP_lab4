@@ -27,5 +27,8 @@ public:
 	virtual void turnOffReader();
 
 	virtual void getComposite() = 0;
+	virtual double getTotalCost() = 0;
+
+	double getCost();
 };
 

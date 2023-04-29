@@ -52,4 +52,9 @@ void IRoom::turnOffReader()
 		myReader->setState(false);
 }
 
+double IRoom::getCost()
+{
+	return myOpener->getCost() + myReader->getCost();
+}
+
 

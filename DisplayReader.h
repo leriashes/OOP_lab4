@@ -6,7 +6,7 @@ class DisplayReader :
 private:
     bool displayState;
 public:
-    DisplayReader(IReader* reader, LangReader* lang) :AdditionalReader(reader, lang,  reader->getName() + " + дисплей") { displayState = true; };
+    DisplayReader(IReader* reader, LangReader* lang, double cost) :AdditionalReader(reader, lang,  reader->getName() + " + дисплей", cost) { displayState = true; };
 
     bool tryToEnter();
     bool scanIdentifier();

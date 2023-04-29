@@ -4,7 +4,7 @@ class Door : public IOpener
 {
   
 public:
-    Door() :IOpener("Дверь") {};
+    Door(double cost) :IOpener("Дверь", cost) {};
 
     void actionOpen();
     void actionClose();

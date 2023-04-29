@@ -19,5 +19,6 @@ public:
     void turnOffReader();
 
     void getComposite();
+    double getTotalCost();
 };
 

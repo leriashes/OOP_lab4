@@ -1,9 +1,10 @@
 #include "IReader.h"
 
-IReader::IReader(string s, bool st)
+IReader::IReader(string s, bool st, double cost)
 {
 	myName = s;
 	myState = st;
+	myCost = cost;
 }
 
 void IReader::name()
@@ -43,4 +44,9 @@ string IReader::getName()
 bool IReader::sendQuery()
 {
 	return mySolver->processData();
+}
+
+double IReader::getCost()
+{
+	return myCost;
 }

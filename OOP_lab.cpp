@@ -22,9 +22,10 @@ int main()
     setlocale(LC_ALL, "Rus");
     srand(time(NULL));
 
-    ISolver* solv = new SimpleSolver(), * solv_garage = new SimpleSolver();
-    IOpener* door = new Door(), * gate = new Gate();
-    IReader* fingerScan = new FingerPrintScanner(true), * numplateScan = new NumberPlateScanner(true);
+    ISolver* solv = new SimpleSolver(), * solv_garage = new SimpleSolver(), *solv_korp = new SimpleSolver();
+    IOpener* door = new Door(52000), * gate = new Gate(143000), *door_korp = new Door(120000);
+    IReader* fingerScan = new FingerPrintScanner(true, 12800), * numplateScan = new NumberPlateScanner(true, 4650), 
+        *scan = new FingerPrintScanner(true, 12800);
     
     IRoom* cabinet = new SimpleRoom("Кабинет", solv, door, fingerScan),
         *garage = new SimpleRoom("Гараж", solv_garage, gate, numplateScan);
@@ -35,9 +36,10 @@ int main()
         * eng = new EngLang(fact, "Please, put your finger on the scanner! "), 
         *engGarage = new EngLang(fact, "Please, position the car in front of the scanner! ");
 
-    DisplayReader* displayScan = new DisplayReader(fingerScan, rus);
+    DisplayReader* displayScan = new DisplayReader(fingerScan, rus, 5400);
     cabinet->setReader(displayScan);
 
+    cout << endl;
     displayScan->tryToEnter();
     cout << endl;
 
@@ -52,11 +54,26 @@ int main()
     displayScan->tryToEnter();
     cout << endl;
 
-    DisplayReader* displayScan1 = new DisplayReader(numplateScan, engGarage);
+    DisplayReader* displayScan1 = new DisplayReader(numplateScan, engGarage, 5400);
     garage->setReader(displayScan1);
 
     displayScan1->tryToEnter();
     cout << endl;
+
+    cout << "Итоговая стоимость оборудования для кабинета: " << cabinet->getTotalCost() << " руб.\n"; //дверь + сканер отпечатка + дисплей
+    cout << "Итоговая стоимость оборудования для гаража: " << garage->getTotalCost() << " руб.\n"; //ворота + сканер номера + дисплей
+
+
+    CompositeRoom* complex = new CompositeRoom("Корпус", solv_korp, door_korp, scan);
+    complex->add(garage);
+    complex->add(cabinet);
+
+    cout << "Итоговая стоимость оборудования для корпуса: " << complex->getTotalCost() << " руб.\n";
+
+
+
+
+
     /*StrFlyweight* mes = fact->getStr("Hello!");
 
     cout << mes->getMessage(" Please, smile and wave! ");
