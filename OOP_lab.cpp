@@ -1,6 +1,4 @@
-﻿#include <iostream>
-#include <string>
-#include <conio.h>
+﻿#include <conio.h>
 #include <time.h>
 #include "SimpleRoom.h"
 #include "Gate.h"
@@ -14,6 +12,7 @@
 #include "FingerDisplayFactory.h"
 #include "NumplateVoiceFactory.h"
 #include "NumplateDisplayStateFactory.h"
+#include "Database.h"
 using namespace std;
 
 int main()
@@ -85,6 +84,9 @@ int main()
 
     
     
+    Database* base = Database::Instance();
+    Database* base1 = Database::Instance();
+
 
 
     ISolver* solv_garage = new SimpleSolver(), *solv_korp = new SimpleSolver();

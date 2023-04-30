@@ -4,8 +4,7 @@ bool SimpleSolver::processData()
 {
 	cout << "Обработка..." << endl;
 
-	bool result = rand() % 2;
-
+	bool result = Database::Instance()->processData();
 	sendSolution(result);
 
 	return result;

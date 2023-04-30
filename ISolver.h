@@ -1,5 +1,6 @@
 #pragma once
 #include "IOpener.h"
+#include "Database.h"
 
 class ISolver
 {

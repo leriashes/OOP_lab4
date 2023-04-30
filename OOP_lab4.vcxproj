@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClCompile Include="AdditionalReader.cpp" />
     <ClCompile Include="CompositeRoom.cpp" />
+    <ClCompile Include="Database.cpp" />
     <ClCompile Include="DisplayReader.cpp" />
     <ClCompile Include="Door.cpp" />
     <ClCompile Include="DoorFM.cpp" />
@@ -175,6 +176,7 @@
   <ItemGroup>
     <ClInclude Include="AdditionalReader.h" />
     <ClInclude Include="CompositeRoom.h" />
+    <ClInclude Include="Database.h" />
     <ClInclude Include="DisplayReader.h" />
     <ClInclude Include="Door.h" />
     <ClInclude Include="DoorFM.h" />
