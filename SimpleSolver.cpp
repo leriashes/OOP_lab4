@@ -31,6 +31,6 @@ void SimpleSolver::sendSolution(bool res)
 
 void SimpleSolver::setState(bool state)
 {
-	cout << "Невозможно изменить состояние..." << endl;
+
 }
 

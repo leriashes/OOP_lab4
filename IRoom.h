@@ -30,5 +30,8 @@ public:
 	virtual double getTotalCost() = 0;
 
 	double getCost();
+
+	void lock();
+	void unlock();
 };
 

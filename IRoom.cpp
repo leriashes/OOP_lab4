@@ -57,4 +57,16 @@ double IRoom::getCost()
 	return myOpener->getCost() + myReader->getCost();
 }
 
+void IRoom::lock()
+{
+	myOpener->actionClose();
+	myReader->setState(false);
+	mySolver->setState(false);
+}
+
+void IRoom::unlock()
+{
+	myReader->setState(true);
+	mySolver->setState(true);
+}
 

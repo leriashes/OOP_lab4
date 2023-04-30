@@ -70,207 +70,50 @@ int main()
 
     cout << "Итоговая стоимость оборудования для корпуса: " << complex->getTotalCost() << " руб.\n";
 
+    ISolver* stsolv = new StateSolver(true);
+    garage->setSolver(stsolv);
 
-
-
-
-    /*StrFlyweight* mes = fact->getStr("Hello!");
-
-    cout << mes->getMessage(" Please, smile and wave! ");
-
-    StrFlyweight* mes1 = fact->getStr("Hello!");
-
-    cout << mes1->getMessage(" Please1, smile1 and1 wave1! ");
-
-    delete mes1;*/
-
-
-    /*
-
-    IReader* prox = new ProxyReader(displayScan);
-    prox->tryToEnter();
+    cout << "\nБлокировка гаража: \n";
+    garage->lock();
     cout << endl;
 
-    prox->setState(false);
-    prox->tryToEnter();
+    cout << "Разблокировка гаража: \n";
+    garage->unlock();
     cout << endl;
 
-
-    IReader* dScan = new DisplayReader(numplateScan);
-    IRoom* garage = new SimpleRoom("Гараж", solv_garage, gate, dScan);
-
-    garage->name();
-    dScan->tryToEnter();
-    cout << endl;
-    _getch();
-
-
-
-
-    system("cls");
-
-    //Композит
-
-    ISolver* solv_base = new SimpleSolver(), * solv_c1 = new SimpleSolver(), * solv_c2 = new SimpleSolver(),
-        * solv_lib = new SimpleSolver();
-
-    IOpener * gate_base = new Gate(),
-        * door_c1 = new Door(), * door_c2 = new Door(),
-        * door_lib = new Door();
-
-    IReader* fingerScanlib = new FingerPrintScanner(true), * fingerScan_base = new FingerPrintScanner(true),
-        * fingerScan_c1 = new FingerPrintScanner(true), * fingerScan_c2 = new FingerPrintScanner(true);
-
-    IReader* pgarage = new ProxyReader(dScan), * plib = new ProxyReader(fingerScanlib),
-        * pbase = new ProxyReader(fingerScan_base), * pcomp1 = new ProxyReader(fingerScan_c1),
-        * pcomp2 = new ProxyReader(fingerScan_c2);
-
-
-    IRoom* library = new SimpleRoom("Библиотека", solv_lib, door_lib, plib);
-
-    CompositeRoom* base = new CompositeRoom("База", solv_base, gate_base, pbase), 
-        * complex1 = new CompositeRoom("Корпус А", solv_c1, door_c1, pcomp1),
-        * complex2 = new CompositeRoom("Корпус Б", solv_c2, door_c2, pcomp2);
-
-    garage->setReader(pgarage);
-
-
-    complex1->add(cabinet);
-    complex1->add(garage);
-    complex1->getComposite();
-
-    complex2->add(library);
-    complex2->getComposite();
-
-    base->add(complex1);
-    base->add(complex2);
-    base->getComposite();
+    cout << "Блокировка кабинета: \n";
+    cabinet->lock();
     cout << endl;
 
-
-    base->name();
-    pbase->tryToEnter();
+    cout << "Разблокировка кабинета: \n";
+    cabinet->unlock();
     cout << endl;
 
-    complex1->name();
-    pcomp1->tryToEnter();
-    cout << endl;
-
-    complex2->name();
-    pcomp2->tryToEnter();
-    cout << endl;
-
-    garage->name();
-    pgarage->tryToEnter();
-    cout << endl << endl;
-
-    base->turnOffReader();
-    cout << endl;
-
-    base->name();
-    pbase->tryToEnter();
-    cout << endl;
-
-    complex1->name();
-    pcomp1->tryToEnter();
-    cout << endl;
-
-    complex2->name();
-    pcomp2->tryToEnter();
-    cout << endl;
-
-    garage->name();
-    pgarage->tryToEnter();
-    cout << endl << endl;
-
-    complex1->turnOnReader();
-    cout << endl;
-
-    base->name();
-    pbase->tryToEnter();
-    cout << endl;
-
-    complex1->name();
-    pcomp1->tryToEnter();
-    cout << endl;
-
-    complex2->name();
-    pcomp2->tryToEnter();
-    cout << endl;
-
-    garage->name();
-    pgarage->tryToEnter();
-    cout << endl << endl;
-
-    library->turnOnReader();
-    cout << endl;
-
-    base->name();
-    pbase->tryToEnter();
-    cout << endl;
-
-    complex2->name();
-    pcomp2->tryToEnter();
-    cout << endl;
-
-    library->name();
-    plib->tryToEnter();
-    cout << endl << endl;
-
-
-    //Итератор
-
-    typedef MyAggregate<IRoom*> MyContainer;
-    MyContainer cont;   
-
-    cont.push(complex1);
-    cont.push(complex2);
-    cont.push(cabinet);
-    cont.push(library);
-
-    for (MyContainer::myIter it = cont.begin(); it != cont.end(); ++it) {
-        (*(it.next()))->name();
-    }
-
-    //помещения
-    delete cabinet;
-    delete garage;
-    delete library;
-    delete complex1;
-    delete complex2;
-    delete base;
-
-    //решатели
-    delete solv_base;
-    delete solv_c1;
-    delete solv_c2;
-    delete solv_lib;
-    delete solv_garage;
     delete solv;
+    delete solv_garage;
+    delete solv_korp;
+    delete stsolv;
 
-    //двери
     delete door;
     delete gate;
-    delete gate_base;
-    delete door_c1;
-    delete door_c2;
-    delete door_lib;
+    delete door_korp;
 
-    //считыватели
-    delete fingerScan;
     delete numplateScan;
-    delete fingerScanlib;
-    delete fingerScan_base;
-    delete fingerScan_c1;
-    delete fingerScan_c2;
+    delete fingerScan;
+    delete scan;
 
-    //прокси
-    delete prox;
-    delete pgarage;
-    delete plib;
-    delete pbase;
-    delete pcomp1;
-    delete pcomp2;
-    */
+    delete displayScan;
+    delete displayScan1;
+
+    delete cabinet;
+    delete garage;
+    delete complex;
+
+    delete rus;
+    delete eng;
+    delete engGarage;
+
+    delete fact;
+
     return 0;
 }
