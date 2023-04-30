@@ -30,18 +30,21 @@ int main()
     IOpener* door1 = dfm->createOpener(95000);
     IOpener* door2 = dfm->cloneOpener(door);
 
+    cout << endl;
     door->info();
     door1->info();
     door2->info();
-
+    cout << endl;
 
     OpenerFM* gfm = new GateFM();
 
     IOpener* gate = gfm->createOpener(142000);
     IOpener* gate1 = gfm->cloneOpener(gate);
 
+    cout << endl;
     gate->info();
     gate1->info();
+    cout << endl;
 
     ISolver* solv = new SimpleSolver(), * solv_garage = new SimpleSolver(), *solv_korp = new SimpleSolver();
     IOpener *door_korp = new Door(120000);
