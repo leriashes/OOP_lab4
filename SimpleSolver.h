@@ -9,5 +9,6 @@ class SimpleSolver :
     void sendSolution(bool res);
     void setState(bool state);
     void info();
+    ISolver* clone();
 };
 

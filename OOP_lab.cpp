@@ -68,9 +68,16 @@ int main()
     read3->info();
     cout << endl;
 
-    
 
-    ISolver* solv = new SimpleSolver(), * solv_garage = new SimpleSolver(), *solv_korp = new SimpleSolver();
+    ISolver* solv = new SimpleSolver(), *st_solv = new StateSolver(true);
+    ISolver* solv1 = solv->clone();
+    ISolver* solv2 = st_solv->clone();
+
+
+
+    ISolver* solv_garage = new SimpleSolver(), *solv_korp = new SimpleSolver();
+
+
     IOpener *door_korp = new Door(120000);
     IReader* fingerScan = new FingerPrintScanner(true, 12800), * numplateScan = new NumberPlateScanner(true, 4650), 
         *scan = new FingerPrintScanner(true, 12800);

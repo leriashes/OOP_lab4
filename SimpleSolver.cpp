@@ -39,3 +39,12 @@ void SimpleSolver::info()
 	cout << "простой\n";
 }
 
+ISolver* SimpleSolver::clone()
+{
+	cout << "Клонирование простого решателя...\n";
+	ISolver* res = new SimpleSolver(*this);
+	res->setOpener(nullptr);
+
+	return res;
+}
+

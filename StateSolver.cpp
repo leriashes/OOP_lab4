@@ -38,6 +38,15 @@ void StateSolver::info()
 	cout << "по состо€нию\n";
 }
 
+ISolver* StateSolver::clone()
+{
+	cout << " лонирование решател€ по состо€нию...\n";
+	ISolver* res = new StateSolver(*this);
+	res->setOpener(nullptr);
+
+	return res;
+}
+
 void StateSolver::sendSolution(bool res)
 {
 	map <bool, string> solutions;

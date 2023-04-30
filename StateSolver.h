@@ -20,5 +20,7 @@ public:
     bool startProcessing();
     bool stopProcessing();
     void info();
+
+    ISolver* clone();
 };
 
