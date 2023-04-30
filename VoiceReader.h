@@ -8,5 +8,6 @@ public:
 
     bool tryToEnter();
     bool scanIdentifier();
+    void info();
 };
 

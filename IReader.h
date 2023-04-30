@@ -18,6 +18,9 @@ public:
 	IReader(string s, bool st, double cost);
 
 	void name();
+	virtual void info();
+	virtual void infoSolver();
+
 	virtual void setSolver(ISolver* s);
 	virtual void setState(bool st);
 	virtual bool getState();

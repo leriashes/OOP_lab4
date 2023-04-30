@@ -13,5 +13,7 @@ public:
 
     void turnOff();
     void trunOn();
+
+    void info();
 };
 

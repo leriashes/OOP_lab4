@@ -19,5 +19,6 @@ public:
 
     bool startProcessing();
     bool stopProcessing();
+    void info();
 };
 

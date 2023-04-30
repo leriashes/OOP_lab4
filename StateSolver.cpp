@@ -33,6 +33,11 @@ bool StateSolver::stopProcessing()
 	return false;
 }
 
+void StateSolver::info()
+{
+	cout << "по состоянию\n";
+}
+
 void StateSolver::sendSolution(bool res)
 {
 	map <bool, string> solutions;

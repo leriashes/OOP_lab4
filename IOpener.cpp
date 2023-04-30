@@ -23,5 +23,5 @@ double IOpener::getCost()
 
 void IOpener::info()
 {
-	cout << myName << " - цена: " << myCost << endl;
+	cout << myName << " - цена: " << myCost << " руб." << endl;
 }

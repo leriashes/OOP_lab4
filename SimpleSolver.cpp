@@ -34,3 +34,8 @@ void SimpleSolver::setState(bool state)
 
 }
 
+void SimpleSolver::info()
+{
+	cout << "простой\n";
+}
+

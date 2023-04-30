@@ -4,19 +4,16 @@
 #include <time.h>
 #include "SimpleRoom.h"
 #include "Gate.h"
-#include "FingerPrintScanner.h"
-#include "NumberPlateScanner.h"
-#include "SimpleSolver.h"
-#include "StateSolver.h"
 #include "ProxyReader.h"
 #include "CompositeRoom.h"
-#include "VoiceReader.h"
-#include "DisplayReader.h"
 #include "RusLang.h"
-#include "EngLang.h"
 
 #include "DoorFM.h"
 #include "GateFM.h"
+#include "FingerStateFactory.h"
+#include "FingerDisplayFactory.h"
+#include "NumplateVoiceFactory.h"
+#include "NumplateDisplayStateFactory.h"
 using namespace std;
 
 int main()
@@ -45,6 +42,33 @@ int main()
     gate->info();
     gate1->info();
     cout << endl;
+
+
+    IReaderFactory* fsf = new FingerStateFactory();
+    IReader* read = fsf->createReader();
+
+    read->info();
+    cout << endl;
+
+    IReaderFactory* fdf = new FingerDisplayFactory();
+    IReader* read1 = fdf->createReader();
+
+    read1->info();
+    cout << endl;
+
+    IReaderFactory* nvf = new NumplateVoiceFactory();
+    IReader* read2 = nvf->createReader();
+
+    read2->info();
+    cout << endl;
+
+    IReaderFactory* ndsf = new NumplateDisplayStateFactory();
+    IReader* read3 = ndsf->createReader();
+
+    read3->info();
+    cout << endl;
+
+    
 
     ISolver* solv = new SimpleSolver(), * solv_garage = new SimpleSolver(), *solv_korp = new SimpleSolver();
     IOpener *door_korp = new Door(120000);

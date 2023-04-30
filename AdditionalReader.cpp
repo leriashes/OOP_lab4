@@ -35,6 +35,11 @@ string AdditionalReader::getRequest()
     return myReader->getRequest();
 }
 
+void AdditionalReader::infoSolver()
+{
+    myReader->infoSolver();
+}
+
 bool AdditionalReader::tryToEnter()
 {
     return myReader->tryToEnter();
@@ -59,3 +64,4 @@ void AdditionalReader::stop()
 {
     myLanguage->printStop();
 }
+

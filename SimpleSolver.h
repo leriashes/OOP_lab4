@@ -8,5 +8,6 @@ class SimpleSolver :
     bool processData();
     void sendSolution(bool res);
     void setState(bool state);
+    void info();
 };
 

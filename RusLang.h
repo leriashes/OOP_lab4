@@ -5,5 +5,6 @@ class RusLang :
 {
 public:
 	RusLang(StrFlyFactory* fact, string request) :LangReader("Русский ", "Здравствуйте! ", "Проходите! ", "Проход запрещён! ", request, fact) {};
+	RusLang(string request) :LangReader("Русский ", "Здравствуйте! ", "Проходите! ", "Проход запрещён! ", request) {};
 };
 

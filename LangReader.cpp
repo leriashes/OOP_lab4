@@ -9,6 +9,15 @@ LangReader::LangReader(string name, string shello, string swelcome, string sstop
 	myRequest = request;
 }
 
+LangReader::LangReader(string name, string shello, string swelcome, string sstop, string request)
+{
+	myName = name;
+	hello = new StrFlyweight(shello);
+	welcome = new StrFlyweight(swelcome);
+	stop = new StrFlyweight(sstop);
+	myRequest = request;
+}
+
 string LangReader::getName()
 {
 	return myName;

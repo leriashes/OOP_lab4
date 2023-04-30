@@ -2,6 +2,6 @@
 
 Door* DoorFM::createOpener(double cost)
 {
-    cout << "Создан объект \"Дверь\", цена: " << cost << endl;
+    cout << "Создан объект \"Дверь\", цена: " << cost << " руб." << endl;
     return new Door(cost);
 }

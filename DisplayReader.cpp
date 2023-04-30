@@ -46,3 +46,9 @@ void DisplayReader::trunOn()
 	displayState = false;
 	cout << getName() << ": дисплей включен" << endl;
 }
+
+void DisplayReader::info()
+{
+	cout << getName() << " с дисплеем - цена: " << getCost() << " руб., \nрешатель: ";
+	infoSolver();
+}

@@ -17,3 +17,9 @@ bool VoiceReader::scanIdentifier()
 {
 	return AdditionalReader::tryToEnter();
 }
+
+void VoiceReader::info()
+{
+	cout << getName() << " с озвучкой - цена: " << getCost() << " руб., \nрешатель: ";
+	infoSolver();
+}

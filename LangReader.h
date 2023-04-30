@@ -15,6 +15,7 @@ private:
 
 public:
 	LangReader(string name, string shello, string swelcome, string sstop, string request, StrFlyFactory* fact);
+	LangReader(string name, string shello, string swelcome, string sstop, string request);
 
 	string getName();
 

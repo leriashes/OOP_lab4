@@ -22,6 +22,7 @@ public:
     void setState(bool st);
     bool getState();
     string getRequest();
+    void infoSolver();
 
     virtual bool tryToEnter();
     virtual bool scanIdentifier();
