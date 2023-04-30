@@ -49,6 +49,6 @@ void DisplayReader::trunOn()
 
 void DisplayReader::info()
 {
-	cout << getName() << " с дисплеем - цена: " << getCost() << " руб., \nрешатель: ";
+	cout << getName() << " с дисплеем - цена: " << getCost() << " руб., \n";
 	infoSolver();
 }

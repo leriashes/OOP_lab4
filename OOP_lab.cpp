@@ -42,6 +42,7 @@ int main()
     gate->info();
     gate1->info();
     cout << endl;
+    cout << endl;
 
 
     IReaderFactory* fsf = new FingerStateFactory();
@@ -67,12 +68,23 @@ int main()
 
     read3->info();
     cout << endl;
+    cout << endl;
 
 
     ISolver* solv = new SimpleSolver(), *st_solv = new StateSolver(true);
-    ISolver* solv1 = solv->clone();
-    ISolver* solv2 = st_solv->clone();
 
+    solv->info();
+    ISolver* solv1 = solv->clone();
+    solv1->info();
+    cout << endl;
+
+    st_solv->info();
+    ISolver* solv2 = st_solv->clone();
+    solv2->info();
+    cout << endl;
+
+    
+    
 
 
     ISolver* solv_garage = new SimpleSolver(), *solv_korp = new SimpleSolver();

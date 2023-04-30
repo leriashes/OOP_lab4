@@ -20,6 +20,6 @@ bool VoiceReader::scanIdentifier()
 
 void VoiceReader::info()
 {
-	cout << getName() << " с озвучкой - цена: " << getCost() << " руб., \nрешатель: ";
+	cout << getName() << " с озвучкой - цена: " << getCost() << " руб., \n";
 	infoSolver();
 }

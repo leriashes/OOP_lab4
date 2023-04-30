@@ -35,14 +35,15 @@ bool StateSolver::stopProcessing()
 
 void StateSolver::info()
 {
-	cout << "по состоянию\n";
+	cout << "Решатель по состоянию\n";
 }
 
 ISolver* StateSolver::clone()
 {
-	cout << "Клонирование решателя по состоянию...\n";
 	ISolver* res = new StateSolver(*this);
 	res->setOpener(nullptr);
+
+	cout << "Клонирование решателя по состоянию...\n" << this << " --clone--> " << res << endl;
 
 	return res;
 }

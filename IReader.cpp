@@ -14,7 +14,7 @@ void IReader::name()
 
 void IReader::info()
 {
-	cout << myName << " - цена: " << myCost << " руб., \nрешатель: "; 
+	cout << myName << " - цена: " << myCost << " руб., \n"; 
 	mySolver->info();
 }
 

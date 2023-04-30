@@ -36,14 +36,15 @@ void SimpleSolver::setState(bool state)
 
 void SimpleSolver::info()
 {
-	cout << "простой\n";
+	cout << "Простой решатель\n";
 }
 
 ISolver* SimpleSolver::clone()
 {
-	cout << "Клонирование простого решателя...\n";
 	ISolver* res = new SimpleSolver(*this);
 	res->setOpener(nullptr);
+
+	cout << "Клонирование простого решателя...\n" << this << " --clone--> " << res << endl;
 
 	return res;
 }
