@@ -143,9 +143,11 @@
     <ClCompile Include="CompositeRoom.cpp" />
     <ClCompile Include="DisplayReader.cpp" />
     <ClCompile Include="Door.cpp" />
+    <ClCompile Include="DoorFM.cpp" />
     <ClCompile Include="EngLang.cpp" />
     <ClCompile Include="FingerPrintScanner.cpp" />
     <ClCompile Include="Gate.cpp" />
+    <ClCompile Include="GateFM.cpp" />
     <ClCompile Include="IOpener.cpp" />
     <ClCompile Include="IReader.cpp" />
     <ClCompile Include="IRoom.cpp" />
@@ -153,6 +155,7 @@
     <ClCompile Include="LangReader.cpp" />
     <ClCompile Include="NumberPlateScanner.cpp" />
     <ClCompile Include="OOP_lab.cpp" />
+    <ClCompile Include="OpenerFM.cpp" />
     <ClCompile Include="ProxyReader.cpp" />
     <ClCompile Include="RusLang.cpp" />
     <ClCompile Include="SimpleRoom.cpp" />
@@ -169,9 +172,11 @@
     <ClInclude Include="CompositeRoom.h" />
     <ClInclude Include="DisplayReader.h" />
     <ClInclude Include="Door.h" />
+    <ClInclude Include="DoorFM.h" />
     <ClInclude Include="EngLang.h" />
     <ClInclude Include="FingerPrintScanner.h" />
     <ClInclude Include="Gate.h" />
+    <ClInclude Include="GateFM.h" />
     <ClInclude Include="IOpener.h" />
     <ClInclude Include="IReader.h" />
     <ClInclude Include="IRoom.h" />
@@ -180,6 +185,7 @@
     <ClInclude Include="MyAggregate.h" />
     <ClInclude Include="MyElement.h" />
     <ClInclude Include="NumberPlateScanner.h" />
+    <ClInclude Include="OpenerFM.h" />
     <ClInclude Include="ProxyReader.h" />
     <ClInclude Include="RusLang.h" />
     <ClInclude Include="SimpleRoom.h" />

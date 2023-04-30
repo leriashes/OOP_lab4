@@ -87,6 +87,15 @@
     <ClCompile Include="StrFlyFactory.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="OpenerFM.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="DoorFM.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="GateFM.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="IRoom.h">
@@ -165,6 +174,15 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="StrFlyFactory.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenerFM.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="DoorFM.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="GateFM.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

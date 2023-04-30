@@ -11,7 +11,17 @@ void IOpener::name()
 	cout << myName << endl;
 }
 
+string IOpener::getName()
+{
+	return myName;
+}
+
 double IOpener::getCost()
 {
 	return myCost;
+}
+
+void IOpener::info()
+{
+	cout << myName << " - цена: " << myCost << endl;
 }

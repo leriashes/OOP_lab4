@@ -3,7 +3,6 @@
 #include <conio.h>
 #include <time.h>
 #include "SimpleRoom.h"
-#include "Door.h"
 #include "Gate.h"
 #include "FingerPrintScanner.h"
 #include "NumberPlateScanner.h"
@@ -15,6 +14,9 @@
 #include "DisplayReader.h"
 #include "RusLang.h"
 #include "EngLang.h"
+
+#include "DoorFM.h"
+#include "GateFM.h"
 using namespace std;
 
 int main()
@@ -22,8 +24,27 @@ int main()
     setlocale(LC_ALL, "Rus");
     srand(time(NULL));
 
+    OpenerFM* dfm = new DoorFM();
+
+    IOpener* door = dfm->createOpener(57000);
+    IOpener* door1 = dfm->createOpener(95000);
+    IOpener* door2 = dfm->cloneOpener(door);
+
+    door->info();
+    door1->info();
+    door2->info();
+
+
+    OpenerFM* gfm = new GateFM();
+
+    IOpener* gate = gfm->createOpener(142000);
+    IOpener* gate1 = gfm->cloneOpener(gate);
+
+    gate->info();
+    gate1->info();
+
     ISolver* solv = new SimpleSolver(), * solv_garage = new SimpleSolver(), *solv_korp = new SimpleSolver();
-    IOpener* door = new Door(52000), * gate = new Gate(143000), *door_korp = new Door(120000);
+    IOpener *door_korp = new Door(120000);
     IReader* fingerScan = new FingerPrintScanner(true, 12800), * numplateScan = new NumberPlateScanner(true, 4650), 
         *scan = new FingerPrintScanner(true, 12800);
     
