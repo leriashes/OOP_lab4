@@ -166,6 +166,7 @@
     <ClCompile Include="RusLang.cpp" />
     <ClCompile Include="SimpleRoom.cpp" />
     <ClCompile Include="SimpleSolver.cpp" />
+    <ClCompile Include="SolverPool.cpp" />
     <ClCompile Include="StateSolver.cpp" />
     <ClCompile Include="StrFlyFactory.cpp" />
     <ClCompile Include="StrFlyweight.cpp" />
@@ -202,6 +203,7 @@
     <ClInclude Include="RusLang.h" />
     <ClInclude Include="SimpleRoom.h" />
     <ClInclude Include="SimpleSolver.h" />
+    <ClInclude Include="SolverPool.h" />
     <ClInclude Include="StateSolver.h" />
     <ClInclude Include="MyIterator.h" />
     <ClInclude Include="StrFlyFactory.h" />

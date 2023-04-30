@@ -13,13 +13,14 @@
 #include "NumplateVoiceFactory.h"
 #include "NumplateDisplayStateFactory.h"
 #include "Database.h"
+#include "SolverPool.h"
 using namespace std;
 
 int main()
 {
     setlocale(LC_ALL, "Rus");
     srand(time(NULL));
-
+ 
     OpenerFM* dfm = new DoorFM();
 
     IOpener* door = dfm->createOpener(57000);
@@ -42,6 +43,14 @@ int main()
     gate1->info();
     cout << endl;
     cout << endl;
+
+    delete dfm;
+    delete door;
+    delete door1;
+    delete door2;
+    delete gfm;
+    delete gate;
+    delete gate1;
 
 
     IReaderFactory* fsf = new FingerStateFactory();
@@ -69,6 +78,17 @@ int main()
     cout << endl;
     cout << endl;
 
+    delete fsf;
+    delete read;
+    delete fdf;
+    delete read1;
+    delete nvf;
+    delete read2;
+    delete ndsf;
+    delete read3;
+
+
+
 
     ISolver* solv = new SimpleSolver(), *st_solv = new StateSolver(true);
 
@@ -81,108 +101,45 @@ int main()
     ISolver* solv2 = st_solv->clone();
     solv2->info();
     cout << endl;
-
-    
-    
-    Database* base = Database::Instance();
-    Database* base1 = Database::Instance();
-
-
-
-    ISolver* solv_garage = new SimpleSolver(), *solv_korp = new SimpleSolver();
-
-
-    IOpener *door_korp = new Door(120000);
-    IReader* fingerScan = new FingerPrintScanner(true, 12800), * numplateScan = new NumberPlateScanner(true, 4650), 
-        *scan = new FingerPrintScanner(true, 12800);
-    
-    IRoom* cabinet = new SimpleRoom("Кабинет", solv, door, fingerScan),
-        *garage = new SimpleRoom("Гараж", solv_garage, gate, numplateScan);
-
-    StrFlyFactory* fact = new StrFlyFactory();
-
-    LangReader* rus = new RusLang(fact, "Пожалуйста, приложите ваш палец! "), 
-        * eng = new EngLang(fact, "Please, put your finger on the scanner! "), 
-        *engGarage = new EngLang(fact, "Please, position the car in front of the scanner! ");
-
-    DisplayReader* displayScan = new DisplayReader(fingerScan, rus, 5400);
-    cabinet->setReader(displayScan);
-
-    cout << endl;
-    displayScan->tryToEnter();
-    cout << endl;
-
-    displayScan->tryToEnter();
-    cout << endl;
-
-    displayScan->setLanguage(eng);
-
-    displayScan->tryToEnter();
-    cout << endl;
-
-    displayScan->tryToEnter();
-    cout << endl;
-
-    DisplayReader* displayScan1 = new DisplayReader(numplateScan, engGarage, 5400);
-    garage->setReader(displayScan1);
-
-    displayScan1->tryToEnter();
-    cout << endl;
-
-    cout << "Итоговая стоимость оборудования для кабинета: " << cabinet->getTotalCost() << " руб.\n"; //дверь + сканер отпечатка + дисплей
-    cout << "Итоговая стоимость оборудования для гаража: " << garage->getTotalCost() << " руб.\n"; //ворота + сканер номера + дисплей
-
-
-    CompositeRoom* complex = new CompositeRoom("Корпус", solv_korp, door_korp, scan);
-    complex->add(garage);
-    complex->add(cabinet);
-
-    cout << "Итоговая стоимость оборудования для корпуса: " << complex->getTotalCost() << " руб.\n";
-
-    ISolver* stsolv = new StateSolver(true);
-    garage->setSolver(stsolv);
-
-    cout << "\nБлокировка гаража: \n";
-    garage->lock();
-    cout << endl;
-
-    cout << "Разблокировка гаража: \n";
-    garage->unlock();
-    cout << endl;
-
-    cout << "Блокировка кабинета: \n";
-    cabinet->lock();
-    cout << endl;
-
-    cout << "Разблокировка кабинета: \n";
-    cabinet->unlock();
     cout << endl;
 
     delete solv;
-    delete solv_garage;
-    delete solv_korp;
-    delete stsolv;
+    delete st_solv;
+    delete solv1;
+    delete solv2;
 
-    delete door;
-    delete gate;
-    delete door_korp;
 
-    delete numplateScan;
-    delete fingerScan;
-    delete scan;
+    
+    Database* base = Database::Instance();
+    Database* base1 = Database::Instance();
+    cout << endl;
 
-    delete displayScan;
-    delete displayScan1;
+    SolverPool* spool = SolverPool::Instance();
 
-    delete cabinet;
-    delete garage;
-    delete complex;
+    ISolver* s = spool->acquireSolver();
+    cout << endl;
 
-    delete rus;
-    delete eng;
-    delete engGarage;
+    ISolver* s1 = spool->acquireSolver();
+    cout << endl;
 
-    delete fact;
+    ISolver* s2 = spool->acquireSolver();
+    cout << endl;
+
+    spool->releaseSolver(s1);
+    cout << endl;
+    s1 = nullptr;
+
+    spool->releaseSolver(s);
+    cout << endl;
+    s = nullptr;
+
+    ISolver* s3 = spool->acquireSolver();
+    cout << endl;
+
+    delete base;
+    delete s2;
+    delete s3;
+    delete spool;
 
     return 0;
 }
