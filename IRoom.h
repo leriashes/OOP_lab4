@@ -22,6 +22,7 @@ public:
 	void setOpener(IOpener* o);
 	void setReader(IReader* r);
 	void setSolver(ISolver* s);
+	void info();
 
 	virtual void turnOnReader();
 	virtual void turnOffReader();
@@ -33,5 +34,7 @@ public:
 
 	void lock();
 	void unlock();
+
+	~IRoom();
 };
 

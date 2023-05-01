@@ -9,6 +9,18 @@ IRoom::IRoom(string s, ISolver* solv, IOpener* o, IReader* r)
 	setSolver(solv);
 }
 
+IRoom::~IRoom()
+{
+	if (myOpener != nullptr)
+		delete myOpener;
+
+	if (myReader != nullptr)
+		delete myReader;
+
+	if (mySolver != nullptr)
+		delete mySolver;
+}
+
 void IRoom::name() 
 { 
 	cout << myName << endl; 
@@ -32,6 +44,14 @@ void IRoom::setSolver(ISolver* s)
 
 	mySolver->setOpener(myOpener);
 	myReader->setSolver(mySolver);
+}
+
+void IRoom::info()
+{
+	cout << "Название комнаты: " << myName << endl;
+	myOpener->info();
+	myReader->info();
+	cout << endl;
 }
 
 void IRoom::turnOnReader()
