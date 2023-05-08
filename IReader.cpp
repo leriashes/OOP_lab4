@@ -1,10 +1,17 @@
 #include "IReader.h"
 
-IReader::IReader(string s, bool st, double cost)
+IReader::IReader(string s, double cost, State* onSt, State* offSt)
 {
 	myName = s;
-	myState = st;
 	myCost = cost;
+
+	onState = onSt;
+	offState = offSt;
+
+	onState->setReader(this);
+	offState->setReader(this);
+
+	currentState = offState;
 }
 
 void IReader::name()
@@ -28,28 +35,41 @@ void IReader::setSolver(ISolver* s)
 	mySolver = s;
 }
 
-void IReader::setState(bool st)
+void IReader::setState(State* state)
 {
-	myState = st;
-
-	if (myState)
-	{
-		cout << myName << ": включение... Готово!" << endl;
-	}
-	else
-	{
-		cout << myName << ": выключение... Готово!" << endl;
-	}
+	currentState = state;
 }
 
-bool IReader::getState()
+State* IReader::getState()
 {
-	return myState;
+	return currentState;
+}
+
+State* IReader::getOnState()
+{
+	return onState;
+}
+
+State* IReader::getOffState()
+{
+	return offState;
 }
 
 string IReader::getName()
 {
 	return myName;
+}
+
+void IReader::on()
+{
+	cout << myName << ": ";
+	currentState->on();
+}
+
+void IReader::off()
+{
+	cout << myName << ": ";
+	currentState->off();
 }
 
 bool IReader::sendQuery()

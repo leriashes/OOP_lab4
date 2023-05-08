@@ -20,50 +20,29 @@ int main()
     setlocale(LC_ALL, "Rus");
     srand(time(NULL));
  
-    Builder* gb = new GarageBuilder();
-    Director* dir = new Director(gb);
+    IReader* fps = new FingerPrintScanner(8000, new OnState(), new OffState());
 
-    IRoom* gar = dir->constructRoom();
-    IRoom* gar1 = dir->constructRoom();
+    fps->on();
+    fps->off();
+    fps->off();
+    fps->on();
+    fps->on();
 
-    cout << endl;
-    gar->info();
-    gar1->info();
-    cout << endl;
+    IRoom* room = new SimpleRoom("Кабинет", new SimpleSolver(), new Door(64000), fps);
 
-    delete dir;
-    delete gb;
-    delete gar;
-    delete gar1;
-
-    Builder* cb = new Builder();
-    OpenerFM* doorfm = new DoorFM();
-    IReaderFactory* fact = new FingerDisplayFactory();
-    cb->setWorker(doorfm);
-    cb->setWorker(fact);
-
-    dir = new Director(cb);
-
-    IRoom* cab = dir->constructRoom();
-
-    delete fact;
-    fact = new FingerStateFactory();
-    cb->setWorker(fact);
-
-    IRoom* cab1 = dir->constructRoom();
+    cout << "\n\nПопытка входа:\n";
+    fps->tryToEnter();
 
     cout << endl;
-    cab->info();
-    cab1->info();
-    cout << endl;
+    room->turnOffReader();
+    room->turnOffReader();
 
-    delete dir;
-    delete cb;
-    delete doorfm;
-    delete fact;
-    delete cab;
-    delete cab1;
-    delete SolverPool::Instance();
+    cout << "\n\nПопытка входа:\n";
+    fps->tryToEnter();
+
+    cout << endl;
+    room->turnOnReader();
+    room->turnOnReader();
 
     return 0;
 }

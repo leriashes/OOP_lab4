@@ -2,8 +2,7 @@
 
 bool NumberPlateScanner::tryToEnter()
 {
-	_getch();
-	return scanIdentifier();
+	return getState()->enter();
 }
 
 bool NumberPlateScanner::scanIdentifier()

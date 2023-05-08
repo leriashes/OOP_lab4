@@ -2,7 +2,7 @@
 
 IReader* NumplateVoiceFactory::createReader()
 {
-    IReader* nps = new NumberPlateScanner(true, 7300);
+    IReader* nps = new NumberPlateScanner(7300, new OnState(), new OffState());
     ISolver* solv = new SimpleSolver();
     nps->setSolver(solv);
 

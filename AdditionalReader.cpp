@@ -20,14 +20,24 @@ void AdditionalReader::setSolver(ISolver* s)
     myReader->setSolver(s);
 }
 
-void AdditionalReader::setState(bool st)
+void AdditionalReader::setState(State* state)
 {
-    myReader->setState(st);
+    myReader->setState(state);
 }
 
-bool AdditionalReader::getState()
+State* AdditionalReader::getState()
 {
     return myReader->getState();
+}
+
+State* AdditionalReader::getOnState()
+{
+    return myReader->getOnState();
+}
+
+State* AdditionalReader::getOffState()
+{
+    return myReader->getOffState();
 }
 
 string AdditionalReader::getRequest()

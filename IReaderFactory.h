@@ -1,5 +1,7 @@
 #pragma once
 #include "IReader.h"
+#include "OnState.h"
+#include "OffState.h"
 
 class IReaderFactory
 {

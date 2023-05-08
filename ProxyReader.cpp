@@ -38,9 +38,9 @@ bool ProxyReader::scanIdentifier()
 	return result;
 }
 
-void ProxyReader::setState(bool st)
+void ProxyReader::setState(State* state)
 {
-	myReader->setState(st);
+	myReader->setState(state);
 }
 
 void ProxyReader::setSolver(ISolver* solver)
@@ -48,9 +48,19 @@ void ProxyReader::setSolver(ISolver* solver)
 	myReader->setSolver(solver);
 }
 
-bool ProxyReader::getState()
+State* ProxyReader::getState()
 {
 	return myReader->getState();
+}
+
+State* ProxyReader::getOnState()
+{
+	return myReader->getOnState();
+}
+
+State* ProxyReader::getOffState()
+{
+	return myReader->getOffState();
 }
 
 string ProxyReader::getName()

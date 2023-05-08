@@ -2,8 +2,7 @@
 
 bool FingerPrintScanner::tryToEnter()
 {
-	_getch();
-	return scanIdentifier();
+	return getState()->enter();
 }
 
 bool FingerPrintScanner::scanIdentifier()

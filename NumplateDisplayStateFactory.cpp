@@ -2,7 +2,7 @@
 
 IReader* NumplateDisplayStateFactory::createReader()
 {
-    IReader* nps = new NumberPlateScanner(true, 8500);
+    IReader* nps = new NumberPlateScanner(8500, new OnState(), new OffState());
     ISolver* solv = new StateSolver(true);
     nps->setSolver(solv);
 

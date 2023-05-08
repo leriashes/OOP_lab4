@@ -163,6 +163,8 @@
     <ClCompile Include="NumberPlateScanner.cpp" />
     <ClCompile Include="NumplateDisplayStateFactory.cpp" />
     <ClCompile Include="NumplateVoiceFactory.cpp" />
+    <ClCompile Include="OffState.cpp" />
+    <ClCompile Include="OnState.cpp" />
     <ClCompile Include="OOP_lab.cpp" />
     <ClCompile Include="OpenerFM.cpp" />
     <ClCompile Include="ProxyReader.cpp" />
@@ -170,6 +172,7 @@
     <ClCompile Include="SimpleRoom.cpp" />
     <ClCompile Include="SimpleSolver.cpp" />
     <ClCompile Include="SolverPool.cpp" />
+    <ClCompile Include="State.cpp" />
     <ClCompile Include="StateSolver.cpp" />
     <ClCompile Include="StrFlyFactory.cpp" />
     <ClCompile Include="StrFlyweight.cpp" />
@@ -204,12 +207,15 @@
     <ClInclude Include="NumberPlateScanner.h" />
     <ClInclude Include="NumplateDisplayStateFactory.h" />
     <ClInclude Include="NumplateVoiceFactory.h" />
+    <ClInclude Include="OffState.h" />
+    <ClInclude Include="OnState.h" />
     <ClInclude Include="OpenerFM.h" />
     <ClInclude Include="ProxyReader.h" />
     <ClInclude Include="RusLang.h" />
     <ClInclude Include="SimpleRoom.h" />
     <ClInclude Include="SimpleSolver.h" />
     <ClInclude Include="SolverPool.h" />
+    <ClInclude Include="State.h" />
     <ClInclude Include="StateSolver.h" />
     <ClInclude Include="MyIterator.h" />
     <ClInclude Include="StrFlyFactory.h" />

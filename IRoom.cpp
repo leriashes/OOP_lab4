@@ -57,19 +57,13 @@ void IRoom::info()
 void IRoom::turnOnReader()
 {
 	cout << myName << ": ";
-	if (myReader->getState())
-		cout << myReader->getName() << " уже включён" << endl;
-	else
-		myReader->setState(true);
+	myReader->on();
 }
 
 void IRoom::turnOffReader()
 {
 	cout << myName << ": ";
-	if (!(myReader->getState()))
-		cout << myReader->getName() << " уже выключен" << endl;
-	else
-		myReader->setState(false);
+	myReader->off();
 }
 
 double IRoom::getCost()
@@ -80,13 +74,13 @@ double IRoom::getCost()
 void IRoom::lock()
 {
 	myOpener->actionClose();
-	myReader->setState(false);
+	myReader->off();
 	mySolver->setState(false);
 }
 
 void IRoom::unlock()
 {
-	myReader->setState(true);
+	myReader->on();
 	mySolver->setState(true);
 }
 

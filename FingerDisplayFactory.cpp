@@ -2,7 +2,7 @@
 
 IReader* FingerDisplayFactory::createReader()
 {
-    IReader* fps = new FingerPrintScanner(true, 8000);
+    IReader* fps = new FingerPrintScanner(8000, new OnState(), new OffState());
     ISolver* solv = new SimpleSolver();
     fps->setSolver(solv);
 

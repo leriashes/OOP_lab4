@@ -1,5 +1,8 @@
 #pragma once
 #include "IReader.h"
+#include "OnState.h"
+#include "OffState.h"
+
 class ProxyReader :
     public IReader
 {
@@ -7,14 +10,20 @@ private:
     IReader* myReader;
 
 public:
-    ProxyReader(IReader* reader) :IReader("Прокси", true, reader->getCost()) {myReader = reader;};
+    ProxyReader(IReader* reader) :IReader("Прокси", reader->getCost(), new OnState(), new OffState()) {myReader = reader;};
 
     void setReader(IReader* reader);
+
     bool tryToEnter();
     bool scanIdentifier();
-    void setState(bool st);
+
+    void setState(State* state);
     void setSolver(ISolver* solver);
-    bool getState();
+
+    State* getState();
+    State* getOnState();
+    State* getOffState();
+
     string getName();
     string getRequest();
 };
