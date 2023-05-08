@@ -44,5 +44,7 @@ int main()
     room->turnOnReader();
     room->turnOnReader();
 
+    delete room;
+
     return 0;
 }

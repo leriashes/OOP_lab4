@@ -81,3 +81,9 @@ double IReader::getCost()
 {
 	return myCost;
 }
+
+IReader::~IReader()
+{
+	delete onState;
+	delete offState;
+}

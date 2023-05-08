@@ -43,5 +43,7 @@ public:
 
 	bool sendQuery();
 	double getCost();
+
+	~IReader();
 };
 
