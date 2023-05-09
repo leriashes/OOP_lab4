@@ -15,6 +15,11 @@ string AdditionalReader::getName()
     return myReader->getName();
 }
 
+LangReader* AdditionalReader::getLanguage()
+{
+    return myLanguage;
+}
+
 void AdditionalReader::setSolver(ISolver* s)
 {
     myReader->setSolver(s);

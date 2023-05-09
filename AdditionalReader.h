@@ -21,6 +21,7 @@ public:
     void setReader(IReader* reader);
 
     string getName();
+    LangReader* getLanguage();
 
     void setSolver(ISolver* s);
     void setState(State* state);

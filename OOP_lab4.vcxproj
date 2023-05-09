@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClCompile Include="AdditionalReader.cpp" />
     <ClCompile Include="Builder.cpp" />
+    <ClCompile Include="Caretaker.cpp" />
     <ClCompile Include="CompositeRoom.cpp" />
     <ClCompile Include="Database.cpp" />
     <ClCompile Include="Director.cpp" />
@@ -160,6 +161,7 @@
     <ClCompile Include="IRoom.cpp" />
     <ClCompile Include="ISolver.cpp" />
     <ClCompile Include="LangReader.cpp" />
+    <ClCompile Include="Memento.cpp" />
     <ClCompile Include="NumberPlateScanner.cpp" />
     <ClCompile Include="NumplateDisplayStateFactory.cpp" />
     <ClCompile Include="NumplateVoiceFactory.cpp" />
@@ -184,6 +186,7 @@
   <ItemGroup>
     <ClInclude Include="AdditionalReader.h" />
     <ClInclude Include="Builder.h" />
+    <ClInclude Include="Caretaker.h" />
     <ClInclude Include="CompositeRoom.h" />
     <ClInclude Include="Database.h" />
     <ClInclude Include="Director.h" />
@@ -203,6 +206,7 @@
     <ClInclude Include="IRoom.h" />
     <ClInclude Include="ISolver.h" />
     <ClInclude Include="LangReader.h" />
+    <ClInclude Include="Memento.h" />
     <ClInclude Include="MyAggregate.h" />
     <ClInclude Include="MyElement.h" />
     <ClInclude Include="NumberPlateScanner.h" />

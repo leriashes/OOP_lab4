@@ -1,5 +1,10 @@
 #include "DisplayReader.h"
 
+DisplayReader::~DisplayReader()
+{
+	delete myStates;
+}
+
 bool DisplayReader::tryToEnter()
 {
 	if (displayState)
@@ -51,4 +56,19 @@ void DisplayReader::info()
 {
 	cout << getName() << " с дисплеем - цена: " << getCost() << " руб., \n";
 	infoSolver();
+}
+
+void DisplayReader::saveState()
+{
+	myStates->push(new Memento(displayState, getLanguage()));
+}
+
+void DisplayReader::restoreState()
+{
+	Memento* snap = myStates->pop();
+
+	displayState = snap->displayState;
+	setLanguage(snap->language);
+
+	delete snap;
 }

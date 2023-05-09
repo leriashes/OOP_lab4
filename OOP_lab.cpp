@@ -52,6 +52,38 @@ int main()
     cout << "\nРазлокировка Кабинета:\n";
     room->unlock();
 
+
+
+    LangReader* rus = new RusLang("Пожалуйста, приложите палец!");
+    LangReader* eng = new EngLang("Please, put your finger on the screen!");
+
+    LangReader* rus1 = new RusLang("Приложи твой пальчик!)");
+
+    DisplayReader* disp = new DisplayReader(fps, rus, 12000);
+    
+    cout << endl;
+    disp->tryToEnter();
+    disp->saveState();
+
+    disp->setLanguage(eng);
+
+    cout << endl;
+    disp->tryToEnter();
+    disp->saveState();
+
+    disp->setLanguage(rus1);
+
+    cout << endl;
+    disp->tryToEnter();
+    disp->restoreState();
+
+    cout << endl;
+    disp->tryToEnter();
+    disp->restoreState();
+
+    cout << endl;
+    disp->tryToEnter();
+
     delete room;
 
     return 0;
