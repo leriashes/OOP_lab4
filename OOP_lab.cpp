@@ -44,6 +44,14 @@ int main()
     room->turnOnReader();
     room->turnOnReader();
 
+
+
+    cout << "\n\nБлокировка Кабинета:\n";
+    room->lock();
+
+    cout << "\nРазлокировка Кабинета:\n";
+    room->unlock();
+
     delete room;
 
     return 0;

@@ -25,3 +25,11 @@ void IOpener::info()
 {
 	cout << myName << " - цена: " << myCost << " руб." << endl;
 }
+
+void IOpener::update(int st)
+{
+	if (st == 0)
+	{
+		actionClose();
+	}
+}

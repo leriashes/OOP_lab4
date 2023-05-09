@@ -73,14 +73,15 @@ double IRoom::getCost()
 
 void IRoom::lock()
 {
-	myOpener->actionClose();
-	myReader->off();
+	myOpener->update(0);
+	myReader->update(0);
 	mySolver->setState(false);
 }
 
 void IRoom::unlock()
 {
-	myReader->on();
+	myOpener->update(1);
+	myReader->update(1);
 	mySolver->setState(true);
 }
 

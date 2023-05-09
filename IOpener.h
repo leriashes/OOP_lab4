@@ -1,9 +1,11 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include "Observer.h"
 using namespace std;
 
-class IOpener
+class IOpener :
+	public Observer
 {
 private:
 	string myName;
@@ -20,5 +22,7 @@ public:
 
 	virtual void actionOpen() = 0;
 	virtual void actionClose() = 0;
+
+	void update(int st);
 };
 

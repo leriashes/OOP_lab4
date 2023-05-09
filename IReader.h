@@ -2,12 +2,14 @@
 #include <iostream>
 #include <string>
 #include "ISolver.h"
+#include "Observer.h"
 #include "State.h"
 #include <conio.h>
 using namespace std;
 
 
-class IReader
+class IReader :
+	public Observer
 {
 private:
 	string myName;
@@ -43,6 +45,8 @@ public:
 
 	bool sendQuery();
 	double getCost();
+
+	void update(int st);
 
 	~IReader();
 };

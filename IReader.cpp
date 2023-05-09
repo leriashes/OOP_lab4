@@ -82,6 +82,18 @@ double IReader::getCost()
 	return myCost;
 }
 
+void IReader::update(int st)
+{
+	if (st == 1)
+	{
+		on();
+	}
+	else
+	{
+		off();
+	}
+}
+
 IReader::~IReader()
 {
 	delete onState;
