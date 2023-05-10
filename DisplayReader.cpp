@@ -60,11 +60,13 @@ void DisplayReader::info()
 
 void DisplayReader::saveState()
 {
+	cout << "\nСохранение текущего состояния...\n";
 	myStates->push(new Memento(displayState, getLanguage()));
 }
 
 void DisplayReader::restoreState()
 {
+	cout << "\nВосстановление предыдущего состояния...\n";
 	Memento* snap = myStates->pop();
 
 	displayState = snap->displayState;
